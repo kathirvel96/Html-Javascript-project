@@ -1,2 +1,4 @@
 # html-css-project
-Enjoy my project of digital clock
+Enjoy my project 
+Comment you suggestions and ideas
+ THANKYOU
