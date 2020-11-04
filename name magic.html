@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Lobster', cursive; 
+    font-size: 77px; 
+} 
+ 
+body { 
+    text-align: center; 
+    max-width: 100%; 
+    height: 657px; 
+    background-image: linear-gradient(red, pink, purple); 
+} 
+.magic { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%,-50%); 
+    z-index: 2; 
+    animation: magicanimate 5s infinite; 
+    color: white; 
+} 
+ h2{
+     font-family:Cambria;
+     font-size:35px;
+     text-align:center;
+     color:blue;
+ }
+@keyframes magicanimate { 
+    0%,100% { 
+        margin-left: -30%; 
+        text-shadow: 10px -5px rgb(247, 0, 255), 20px -10px rgb(0, 247, 255), 30px -15px rgb(45, 45, 255), 40px -20px rgb(46, 247, 46), 50px -25px rgb(255, 255, 90), 60px -30px rgb(255, 114, 137), 70px -35px red; 
+        color: black; 
+    } 
+    25%, 75% { 
+        color: white; 
+    } 
+    50% { 
+        margin-left: 30%; 
+        text-shadow: -10px -5px rgb(247, 0, 255), -20px -10px rgb(0, 247, 255), -30px -15px rgb(45, 45, 255), -40px -20px rgb(46, 247, 46), -50px -25px rgb(255, 255, 90), -60px -30px rgb(255, 114, 137), -70px -35px red; 
+        color: black; 
+    } 
+}
+ <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
+    </style>
+    </head>
+<body>
+
+    <h1 id="name" class="magic">
+        </div>
+        <h2>KATHIR JAVA DEVELOPING BASE</h2>
+        <script>
+
+                let name
+                do {
+                    name = prompt("Enter your name")
+                }while(name == "" || name == null || name == undefined);
+                document.getElementById("name").innerHTML = name
+        </script>
+
+</body>
+</html>
+
