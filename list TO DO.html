@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            align-items:center;
+  background:white;
+  padding-left:380px;
+  padding-top:50px;
+  border:4px solid #0026ff;
+ border-style:dotted;
+ height:550px;
+ width:700px;
+}
+.container {
+  max-width: 400px;
+}
+.search i {
+  position: absolute;
+}
+.search {
+  position: relative;
+}
+.icon {
+  padding: 10px;
+  left: 0;
+}
+.input-field {
+  text-align: center;
+}
+
+input[type="text"],
+input[type="text"]:focus {
+  color:black;
+  font-size:25px;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  max-width: 400px;
+}
+.todos li {
+  background:#ffd800;
+}
+.delete {
+  cursor: pointer;
+}
+
+
+.filtered{
+  display: none !important;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>My Todo List</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="text-center text-light my-4">
+            <h1 class="mb-4" style="color:#ff0000;font-family:Britannic;font-size:35px;">Todo List</h1>
+            <p style="font-family:'HoloLens MDL2 Assets';font-size:20px;"><b>make use of the list to do the work on right time</b></p>
+            <br />
+            <form action="" class="search">
+                <hr />
+                <input type="text" class="form-control input-field m-auto" placeholder="search todos">
+            </form>
+        </header>
+
+        <ul class="list-group todos mx-auto text-light">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Do yoga</span>
+                <i class="fa fa-trash-o delete"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>50 pushups</span>
+                <i class="fa fa-trash-o delete"></i>
+
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>Read Book Novel</span>
+                <i class="fa fa-trash-o delete"></i>
+
+            </li>
+        </ul>
+        <hr />
+        <form  class="add text-center my-4">
+            <label class="text-light">
+                Add new todo...
+            </label>
+            <input type="text" class="form-control m-auto" name="add"/>
+        </form>
+    </div>
+    <script>
+        const addForm = document.querySelector(".add");//reference to form
+        const list = document.querySelector(".todos"); //reference to ul
+
+
+
+
+
+        //Adding todos
+        const generateTemplate = (todo) => {
+            const html = `
+   <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>${todo}</span>
+                <i class="fa fa-trash-o delete"></i>
+    </li>
+    `;
+            list.innerHTML += html;
+        };
+
+        addForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const todo = addForm.add.value.trim();
+            // console.log(todo);
+
+            //check - for true if the todo lenght is greater than 1 it return true to if condition
+            if (todo.length) {
+                generateTemplate(todo);
+                addForm.reset(); //to reset the input
+            }
+        });
+
+
+
+
+
+        // Deleting todos - we are using event delegation
+        //we already had reference for ul
+        list.addEventListener("click", (e) => {
+            //  if (e.target.tagName === "I")
+            if (e.target.classList.contains("delete")) {
+                e.target.parentElement.remove();
+            }
+        });
+
+
+
+
+        //Filter and Searching - keyup event
+        //cont search = document.querySelector('.search input');
+        const search = document.querySelector(".input-field"); //reference to search input
+
+        const filterTodos = (term) => {
+            Array.from(list.children)
+              .filter((todo) => !todo.textContent.toLowerCase().includes(term))
+              .forEach((todo) => todo.classList.add("filtered"));
+
+
+
+            Array.from(list.children)
+              .filter((todo) => todo.textContent.toLowerCase().includes(term))
+              .forEach((todo) => todo.classList.remove("filtered"));
+
+        };
+
+        search.addEventListener("keyup", () => {
+            const term = search.value.trim().toLowerCase();
+            filterTodos(term);
+        });
+
+
+    </script>
+</body>
+
+</html>

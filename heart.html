@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div.heart{
+            display:block;
+            margin:100px;
+            width:100px;
+            height:100px;
+            background-color:red;
+            position:relative;
+            transform:rotateZ(-45deg);
+        }
+        div.heart:hover{
+            background-color:deeppink;
+        }
+        div.heart:after,div.heart:before{
+            display:block;
+            content:'';
+            width:100px;
+            height:100px;
+            background-color:red;
+            border-radius:50px;
+            position:absolute;
+        }
+        body{
+            margin:10px auto;
+            height:400px;
+            width:400px;
+            align-items:center;
+            text-align:center;
+        }
+         body:hover{
+              background-color:yellow;
+         }
+        div.heart:after{
+            top:-50px;
+            left:0;
+        }
+        div.heart:before{
+            top:0;
+            left:50px;
+        }
+        h1{
+            font-family:Gabriola;
+            font-size:30px;
+            color:fuchsia;
+        }
+    </style>
+    <title>HEART</title>
+</head>
+<body>
+    <h1>HEART BUILT BY <mark>CSS</mark></h1>
+    <div class="heart"></div>
+</body>
+</html>

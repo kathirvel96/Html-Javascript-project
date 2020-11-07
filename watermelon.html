@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            margin:30px auto;
+            align-items:center;
+            height:500px;
+            width:600px;
+            padding-left:100px;
+        }
+        #header{
+            
+            font-family:'Gill Sans';
+            font-size:25px;
+            color:crimson;
+            background-color:transparent;
+            height:100px;
+            width:100%;
+        }
+        div.wm-container{
+            width:150px;
+        }
+        div.wm{
+            display:block;
+            background-color:#43c29e;
+            width:150px;
+            height:80px;
+            border-radius:0 0 75px 75px/
+                          0 0 80px 80px;
+            position:relative;
+            z-index:1;
+        }
+        div.wm:before{
+            content:'';
+            margin-left:5px;
+            display:block;
+            background-color:#7DD5BC;
+            width:140px;
+            height:75px;
+            border-radius:0 0 70px 70px/  
+                          0 0 75px 75px;
+            z-index:1;
+                 }
+        div.wm::after{
+            content:'';
+            position:absolute;
+            top:0;
+            margin-left:10px;
+            display:block;
+            background-color:#EC5E64;
+            width:130px;
+            height:70px;
+border-radius:0 0 65px 65px/  
+              0 0 70px 70px;
+            z-index:1;
+        }
+        div.seed-container{
+            display:block;
+            width:100%;
+            height:100%;
+            position:relative;
+            top:0;
+            left:0;
+            text-align:center;
+            margin-top:-70px;
+            z-index:1000;
+        }
+        div.seed{
+            display:inline-block;
+            width:6px;
+            height:10px;
+            top:0;
+            left:0;
+            border-radius:3 3 3px 3px/  
+                          6 6 4px 4px;
+            background-color:#000000;
+            margin: 0 5px 0 5px;
+        }
+    </style>
+    <title>WATER MELON</title>
+    </head>
+<body>
+    <div id="header">WATERMELON created by css</div>
+    <div class="wm-container">
+        <div class="wm"></div>
+        <div class="seed-container">
+            <div class="seed"></div>
+            <div class="seed"></div>
+            <div class="seed"></div>
+            <div class="seed"></div>
+            <div class="seed"></div>
+            <br />
+            <div class="seed"></div>
+            <div class="seed"></div>
+            <div class="seed"></div>
+            <div class="seed"></div>
+        </div>
+    </div>
+</body>
+</html>

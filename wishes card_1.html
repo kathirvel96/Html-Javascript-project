@@ -1,0 +1,141 @@
+<!-- Created by Ferhat Sevim-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+
+	function trigger()
+
+	{
+
+	document.getElementById("hover").addEventListener("mouseover", popup);
+
+	function popup()
+
+	{
+
+	alert("HAVE A GOOD DAY ALWAYS BE HAPPY");
+
+	}
+
+	}
+
+    </script>
+<style>
+*{
+    margin:0px;
+    padding:0px;
+}
+html{
+    height:1400px;
+    width:1000px;
+    background:white;
+}
+body{
+    font-size:55px;
+    text-align: center;
+    color:red;
+    font-family: 'Handlee', cursive;
+   }
+#header{
+    height:100px;
+    width:1400px;
+    background:#ff6a00; 
+}
+#footer{
+    height:100px;
+    width:1400px;
+    background:#4cff00;
+}
+.cube{
+    perspective:500px;
+    perspective-origin:50% 300px;
+}
+.cube-face{
+    padding-left:500px;
+    padding-top:200px;
+    margin:100px;
+    top:10px;
+    right:55px;
+    width:500px;
+    height:500px;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:up 5s  infinite linear;
+    transition:width 10s linear;
+    opacity:1;
+   }
+div:hover{
+    width:100px;
+}
+.cube-face div{
+    width:100px;
+    height:100px;
+    position:relative;
+    }
+.cube-face-front{
+        transform:translateX(25px);
+    }
+.baloon{
+margin:-50px;
+    top:10px;
+    right:70px;
+    width:100px;
+    height:100px
+img{float:top ;}
+position:absolute;
+    transform-style:preserve-3d;
+    animation:down 5s infinite  linear;
+    transition:width 10s linear;
+     opacity:0.7;
+}
+@keyframes up{
+    from {
+    
+    transform:translate(0px,500px);
+    -webkit-transform:translate(0px,-300px);
+    
+    }
+    to {
+    
+    transform:translate(0px, 0px);
+    -webkit-transform:translate(0px, 50px);
+    
+    }
+}
+@keyframes down{
+    from {
+    
+    transform:translate(500px,500px);
+    -webkit-transform:translate(0px,400px);
+    
+    }
+    to {
+    
+    transform:translate(0px, 0px);
+    -webkit-transform:translate(0px,-200px);
+    
+    }
+}
+
+</style>
+    </head>
+
+ <body  onload="trigger();">
+         <div id="header" style="color:black;font-family:'Berlin Sans FB';">"ALWAYS BE HAPPY"</div>
+        
+            <div class="cube-face">
+                
+            
+         <div class="cube-face-front">HAVEA </br>GOODDAY!</div>
+        
+            <div class="baloon"><img src="http://www.iconhot.com/icon/png/event-people/512/balloons-1.png"/></div>      
+        </div>
+        <div id="footer">
+            <p id="hover" style="border:4px dotted #ff006e;
+         border-radius:15px;
+         padding:3px 5px;">MOUSE ON ME</p>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        html{
+            background:#b6ff00;
+        }
+        body{
+            height:600px;
+            width:500px;
+            background:#b200ff;
+            margin:10px auto;
+            cursor:pointer;
+        }
+        body:hover{
+            background:#ff6a00;
+            font-family:'Felix Titling';
+            font-size:20px;
+        }
+        #container{
+            width:100%;
+            height:400px;
+        }
+        #header{
+            width:100%;
+            height:90px;
+            background:#000000;
+            text-align:center;
+            font-family:NSimSun;
+            font-size:48px;
+            color:white;
+        }
+        #footer{
+            width:100%;
+            height:90px;
+            background:#ff00dc;
+            text-align:center;
+            font-family:NSimSun;
+            font-size:48px;
+            color:white;  
+        }
+        button{
+            color:black;
+            border:dashed;
+            border-radius:5px;
+            padding:6px 9px;
+            background-color:aqua;
+        }
+        button:hover{
+            background-color:limegreen;
+            border:solid;
+            padding:10px 15px;
+        }
+    </style>
+    <script>
+        function odd_even() {
+            var no;
+            no = Number(document.getElementById("no_input").value);
+            if(no % 2 == 0)
+            {
+                alert("even number");
+            }
+            else
+            {
+                alert("odd number");
+            }
+        }
+    </script>
+    <title>odd-even</title>
+</head>
+<body>
+    <div id="header"><b>ODD OR EVEN</b></div>
+    <div id="container">
+        <br />
+        <br />
+        enter any no:<input id="no_input" />
+        <br />
+        <br />
+        <button onclick="odd_even()">click me</button>
+    </div>
+    <div id="footer">example for if else</div>
+</body>
+</html>
