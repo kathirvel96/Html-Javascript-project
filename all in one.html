@@ -1,0 +1,535 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <style>
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+}
+body{
+    height:1200px;
+    width:1000px;
+    margin:8px auto;
+    background:#4cff00;
+    text-align:center;
+}
+#weight{
+    background:#0026ff;
+}
+#length{
+    float:right;
+    background:#ffd800;
+    width:50%;
+}
+#temp{
+    float:left;
+    background:#ff0000;
+    width:50%;
+    height:482px;
+}
+#foooter{
+    height:70px;
+    width:100%;
+    background:#ff006e;
+    text-align:left;
+    font-size:25px;
+    font-family:'HoloLens MDL2 Assets';
+}
+.hidden {
+	visibility: hidden;
+}
+
+.form-control {
+	width: 250px;
+}
+      </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="A conversion tool built with JavaScript">
+    <meta name="author" content="Joeri Smissaert">
+    <title>Conversion Tool</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  </head>
+  <body>
+   
+
+    <!-- Page Content -->
+    <section>
+      <div class="jumbotron jumbotron-fluid pb-1">
+        <div class="container-fluid">
+            <h1 class="display-5">Conversion Tool</h1>
+            <p class="lead text-muted">A unit conversion tool built with JavaScript and Bootstrap.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+
+      <div id="main" class="container justify-content-center text-center">
+
+
+        <!-- input field -->
+        <div class="row justify-content-center">
+            <form>
+                  <div class="form-group mb-3">
+                    <input id="input" type="number" class="form-control form-control-lg text-center" placeholder="Enter Value">
+                  </div>
+              </form>
+        </div>
+
+        <div class="row ">
+          <!-- Start Mass Converter -->
+          <div id="weight" class="col">
+            <h1 class="display-5 text-center ">Weight</h1>
+            <div class="btn-group btn-group-lg mb-2" role="group" aria-label="Mass Units">
+              <button type="button" class="btn btn-secondary btn-group-weight" >Lbs</button>
+              <button type="button" class="btn btn-secondary btn-group-weight">Kgs</button>
+              <button type="button" class="btn btn-secondary btn-group-weight">St</button>
+              <button type="button" class="btn btn-secondary btn-group-weight">Gm</button>
+              <button type="button" class="btn btn-secondary btn-group-weight">Oz</button>
+            </div>
+            
+
+
+            <div id="output-weight" class="output hidden">
+
+              <div class="card bg-primary text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Pounds:</h4>
+                  <div id="lbsOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-secondary text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Kilograms:</h4>
+                  <div id="kgsOutput">0</div>
+                </div>
+              </div>
+              <div class="card bg-success text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Stone:</h4>
+                  <div id="stOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-info text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Grams:</h4>
+                  <div id="gmOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-dark text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Ounces:</h4>
+                  <div id="ozOutput">0</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- End Mass Converter -->
+
+          <!-- Start Length Converter -->
+          <div id="length" class="col ">
+            <h1 class="display-5 text-center">Length</h1>
+            <div class="btn-group btn-group-lg mb-2" role="group" aria-label="Length Units">
+              <button type="button" class="btn btn-secondary btn-group-length" >Mm</button>
+              <button type="button" class="btn btn-secondary btn-group-length">Cm</button>
+              <button type="button" class="btn btn-secondary btn-group-length">In</button>
+              <button type="button" class="btn btn-secondary btn-group-length">Ft</button>
+              <button type="button" class="btn btn-secondary btn-group-length">M</button>
+            </div>
+
+            <div id="output-length" class="output hidden">
+
+              <div class="card bg-primary text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Milimeters:</h4>
+                  <div id="mmOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-secondary text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Centimeters:</h4>
+                  <div id="cmOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-success text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Inches:</h4>
+                  <div id="inOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-info text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Feet:</h4>
+                  <div id="ftOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-dark text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Meters:</h4>
+                  <div id="mOutput">0</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+           <!-- End Length Converter -->
+
+          <!-- Start Temp Converter -->
+          <div id="temp" class="col">
+            <h1 class="display-5 text-center ">Temperature</h1>
+            <div class="btn-group btn-group-lg mb-2" role="group" aria-label="Length Units">
+              <button type="button" class="btn btn-secondary btn-group-temp" >C</button>
+              <button type="button" class="btn btn-secondary btn-group-temp">F</button>
+              <button type="button" class="btn btn-secondary btn-group-temp">K</button>
+            </div>
+
+            <div id="output-temp" class="output hidden">
+
+              <div class="card bg-primary text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Celsius:</h4>
+                  <div id="cOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-secondary text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Fahrenheit:</h4>
+                  <div id="fOutput">0</div>
+                </div>
+              </div>
+
+              <div class="card bg-info text-white mb-3 text-center">
+                <div class="card-block m-2">
+                  <h4>Kelvin:</h4>
+                  <div id="kOutput">0</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+           <!-- End Temp Converter -->
+        </div>
+      </div>
+    </section>
+    
+    <script>
+        // mass, length, temperature
+
+        // Input output
+        const inputField = document.getElementById('input');
+        const outputWeight = document.getElementById('output-weight');
+        const outputLength = document.getElementById('output-length');
+        const outputTemp = document.getElementById('output-temp');
+
+        // Weight variables
+        const lbsOutput = document.getElementById('lbsOutput');
+        const kgsOutput = document.getElementById('kgsOutput');
+        const stOutput = document.getElementById('stOutput');
+        const gmOutput = document.getElementById('gmOutput');
+        const ozOutput = document.getElementById('ozOutput');
+
+        // Length variables
+        const mmOutput = document.getElementById('mmOutput');
+        const cmOutput = document.getElementById('cmOutput');
+        const inOutput = document.getElementById('inOutput');
+        const ftOutput = document.getElementById('ftOutput');
+        const mOutput = document.getElementById('mOutput');
+
+        // Temperature variables
+        const cOutput = document.getElementById('cOutput');
+        const fOutput = document.getElementById('fOutput');
+        const kOutput = document.getElementById('kOutput');
+
+
+
+        const btnGroup = document.getElementById('main');
+        btnGroup.addEventListener('click', button => {
+            if (button.target.matches('button')) {
+                const btn = button.target;
+                const btnValue = btn.textContent;
+
+                if (btn.classList.contains('btn-group-weight')) {
+                    outputWeight.style.visibility = 'visible';
+                    outputLength.style.visibility = 'hidden';
+                    outputTemp.style.visibility = 'hidden';
+
+                } else if (btn.classList.contains('btn-group-length')) {
+                    outputWeight.style.visibility = 'hidden';
+                    outputLength.style.visibility = 'visible';
+                    outputTemp.style.visibility = 'hidden';
+
+                } else if (btn.classList.contains('btn-group-temp')) {
+                    outputWeight.style.visibility = 'hidden';
+                    outputLength.style.visibility = 'hidden';
+                    outputTemp.style.visibility = 'visible';
+                }
+
+
+                if (btnValue === 'Lbs') {
+                    inputField.placeholder = 'Enter Pounds';
+                    inputField.addEventListener('input', convertLbs);
+                    convertLbs();
+
+
+                } else if (btnValue === 'Kgs') {
+                    inputField.placeholder = 'Enter Kilograms';
+                    inputField.addEventListener('input', convertKgs);
+                    convertKgs();
+
+                } else if (btnValue === 'St') {
+                    inputField.placeholder = 'Enter Stone';
+                    inputField.addEventListener('input', convertSt);
+                    convertSt();
+
+                } else if (btnValue === 'Gm') {
+                    inputField.placeholder = 'Enter Grams';
+                    inputField.addEventListener('input', convertGm);
+                    convertGm();
+
+                } else if (btnValue === 'Oz') {
+                    inputField.placeholder = 'Enter Ounces';
+                    inputField.addEventListener('input', convertOz);
+                    convertOz();
+
+                } else if (btnValue === 'Mm') {
+                    inputField.placeholder = 'Enter Milimeters';
+                    inputField.addEventListener('input', convertMm);
+                    convertMm();
+
+                } else if (btnValue === 'Cm') {
+                    inputField.placeholder = 'Enter Centimeters';
+                    inputField.addEventListener('input', convertCm);
+                    convertCm();
+
+                } else if (btnValue === 'In') {
+                    inputField.placeholder = 'Enter Inches';
+                    inputField.addEventListener('input', convertIn);
+                    convertIn();
+
+                } else if (btnValue === 'Ft') {
+                    inputField.placeholder = 'Enter Feet';
+                    inputField.addEventListener('input', convertFt);
+                    convertFt();
+
+                } else if (btnValue === 'M') {
+                    inputField.placeholder = 'Enter Meters';
+                    inputField.addEventListener('input', convertM);
+                    convertM();
+
+                } else if (btnValue === 'C') {
+                    inputField.placeholder = 'Enter Celsius';
+                    inputField.addEventListener('input', convertC);
+                    convertC();
+
+                } else if (btnValue === 'F') {
+                    inputField.placeholder = 'Enter Fahrenheit';
+                    inputField.addEventListener('input', convertF);
+                    convertF();
+
+                } else if (btnValue === 'K') {
+                    inputField.placeholder = 'Enter Kelvin';
+                    inputField.addEventListener('input', convertK);
+                    convertK();
+                }
+            }
+        })
+
+
+        //conversion functions
+        function convertLbs() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                lbsOutput.textContent = input;
+                kgsOutput.textContent = Math.floor((input * 0.453592) * 10000) / 10000;
+                stOutput.textContent = Math.floor((input / 14) * 10000) / 10000;
+                gmOutput.textContent = Math.floor((input * 453.59237) * 10000) / 10000;
+                ozOutput.textContent = Math.floor((input * 16) * 10000) / 10000;
+            }
+
+            // set length out put fields to 0
+            // set temp output fields to 0
+            // or change visibility of output cards to  hidden.
+        }
+
+        function convertKgs() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                lbsOutput.textContent = Math.floor((input * 2.2046) * 10000) / 10000;
+                kgsOutput.textContent = input;
+                stOutput.textContent = Math.floor((input * 0.15747) * 10000) / 10000;
+                gmOutput.textContent = Math.floor(input * 1000);
+                ozOutput.textContent = Math.floor((input * 35.27396) * 10000) / 10000;
+            }
+        }
+
+        function convertSt() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                lbsOutput.textContent = Math.floor((input * 14) * 10000) / 10000;
+                kgsOutput.textContent = Math.floor((input / 0.15747) * 10000) / 10000;
+                stOutput.textContent = input;
+                gmOutput.textContent = Math.floor((input * 6350.29) * 10000) / 10000;
+                ozOutput.textContent = Math.floor((input * 224) * 10000) / 10000;
+            }
+        }
+
+        function convertGm() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                lbsOutput.textContent = Math.floor((input * 0.00220462) * 10000) / 10000;
+                kgsOutput.textContent = input / 1000.00;
+                stOutput.textContent = Math.floor((input * 0.000157473) * 10000) / 10000;
+                gmOutput.textContent = input;
+                ozOutput.textContent = Math.floor((input * 0.035274) * 10000) / 10000;
+            }
+        }
+
+        function convertOz() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                lbsOutput.textContent = Math.floor((input * 0.0625) * 10000) / 10000;
+                kgsOutput.textContent = Math.floor((input * 0.0283495) * 10000) / 10000;
+                stOutput.textContent = Math.floor((input * 0.00446429) * 10000) / 10000;
+                gmOutput.textContent = Math.floor((input * 28.3495) * 10000) / 10000;
+                ozOutput.textContent = input;
+            }
+        }
+
+        function convertMm() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                mmOutput.textContent = input;
+                cmOutput.textContent = Math.floor((input / 10) * 10000) / 10000;
+                inOutput.textContent = Math.floor((input / 25.4) * 10000) / 10000;
+                ftOutput.textContent = Math.floor((input / 304.8) * 10000) / 10000;
+                mOutput.textContent = Math.floor((input / 1000) * 10000) / 10000;
+            }
+        }
+
+        function convertCm() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                mmOutput.textContent = Math.floor((input * 10) * 10000) / 10000;
+                cmOutput.textContent = input;
+                inOutput.textContent = Math.floor((input / 2.54) * 10000) / 10000;
+                ftOutput.textContent = Math.floor((input / 30.48) * 10000) / 10000;
+                mOutput.textContent = Math.floor((input / 100) * 10000) / 10000;
+            }
+        }
+
+        function convertIn() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                mmOutput.textContent = Math.floor((input * 25.4) * 10000) / 10000;
+                cmOutput.textContent = Math.floor((input * 2.54) * 10000) / 10000;
+                inOutput.textContent = input;
+                ftOutput.textContent = Math.floor((input / 12) * 10000) / 10000;
+                mOutput.textContent = Math.floor((input / 39.37) * 10000) / 10000;
+            }
+        }
+
+        function convertFt() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                mmOutput.textContent = Math.floor((input * 304.8) * 10000) / 10000;
+                cmOutput.textContent = Math.floor((input * 30.48) * 10000) / 10000;
+                inOutput.textContent = Math.floor((input * 12) * 10000) / 10000;
+                ftOutput.textContent = input;
+                mOutput.textContent = Math.floor((input / 3.281) * 10000) / 10000;
+            }
+        }
+
+        function convertM() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                mmOutput.textContent = Math.floor((input * 1000) * 10000) / 10000;
+                cmOutput.textContent = Math.floor((input * 100) * 10000) / 10000;
+                inOutput.textContent = Math.floor((input * 39.3701) * 10000) / 10000;
+                ftOutput.textContent = Math.floor((input * 3.281) * 10000) / 10000;
+                mOutput.textContent = input;
+            }
+        }
+
+        function convertC() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                cOutput.textContent = input
+                fOutput.textContent = Math.floor((input * (9 / 5) + 32) * 100) / 100;
+                kOutput.textContent = Math.floor((+input + 273.15) * 100) / 100;
+            }
+        }
+
+        function convertF() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                cOutput.textContent = Math.floor(((input - 32) * (5 / 9)) * 100) / 100;
+                fOutput.textContent = input;
+                kOutput.textContent = Math.floor((((input - 32) * (5 / 9)) + 273.15) * 1000) / 1000;
+            }
+        }
+
+        function convertK() {
+            let input = inputField.value;
+
+            if (!input) {
+                return;
+            } else {
+                cOutput.textContent = Math.floor((input - 273.15) * 100) / 100;
+                fOutput.textContent = Math.floor(((input - 273.15) * (9 / 5) + 32) * 100) / 100;
+                kOutput.textContent = input;
+            }
+
+        }
+     </script>
+       <div id="foooter">THANK YOU</div>
+  </body>
+</html>
