@@ -1,0 +1,65 @@
+<html>
+
+	<head>
+
+	<title>greetings</title>
+
+	<script type="text/javascript">
+
+	function trigger()
+
+	{
+
+	document.getElementById("hover").addEventListener("mouseover", popup);
+
+	function popup()
+
+	{
+
+	alert("HAVE A GOOD DAY ALWAYS BE HAPPY");
+
+	}
+
+	}
+
+	</script>
+
+	<style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+      
+    html{
+        background:#4cff00;
+	    }
+    body{
+        height:1000px;
+        width:50%;
+        background:#4800ff;
+      
+    }
+	  
+        p{
+         font-family:Algerian;
+	     font-size:50px;
+         position:fixed;
+         left: 550px;
+         top: 300px;
+         border:4px dotted #ff006e;
+         border-radius:15px;
+         padding:5px 7px;
+	     }
+        
+
+	</style>
+
+	</head>
+
+	<body  onload="trigger();">
+
+	<p id="hover">MOUSE ON ME</p>
+
+	</body>
+
+	</html>

@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+  content="ie=edge">
+  <!-- Latest compiled and minified CSS -->
+<!--<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <style>
+      *{
+margin:0px;
+padding:0px;
+}
+html{
+background:#111;
+}
+body{
+background:silver;
+height:500px;
+width:700px;
+margin:10px auto;
+}
+#header{
+background:#ff0000;
+font-family:Elephant;
+text-align:center;
+font-size:35px;
+height:100px;
+width:100%;
+}
+#nav{
+background:purple;
+color:orangered;
+text-align:center;
+font-size:30px;
+height:70px;
+width:100%;
+}
+#nav:hover{
+    background:skyblue;
+    font-size:40px;
+}
+#container{
+background:yellow;
+height:430px;
+width:100%;
+}
+#footer{
+  background-color: green;
+  color: white;
+  text-align: center;
+  font-size:40px;
+  height:100px;
+  width:100%;
+  color:black;
+}
+
+#footer:hover {
+  background-color: blue;
+}
+  </style>
+
+  <title>Weight Convertor</title>
+
+</head>
+
+<body>
+   <div id="header">convert your weight</div>
+    <div id="nav">kilogram-pound-ounces-grams</div>
+  <div id="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+          <br />
+          <br />
+        <h1 class="display-4 text-center mb-3"> Weight Converter</h1>
+          <br />
+          <br />
+          <br />
+        <form>
+          <div class="form-group">
+            <input id="kgInput" type="number"
+            class="form-control form-control-lg mb-3"
+            placeholder="Enter Kilograms">
+            <div>
+                <br />
+            <input id="btn1" value="Go" type="button" name="Go" color="black"  class="btn button-danger offset-md-5 mb-1"/>
+            </div>
+          </div>
+        </form>
+          <br />
+          <br />
+          <br />
+        <div id="output" style="border:dotted;margin:10px;">
+
+          <div class="card card-primary mb-2">
+            <div class="card-block">
+                <br />
+              <h4>Pounds:</h4>
+              <div id="lbsOutput"></div>
+            </div>
+          </div>
+
+          <div class="card card-success mb-2">
+            <div class="card-block">
+                <br />
+              <h4>Ounces: </h4>
+              <div id="ozOutput"></div>
+            </div>
+          </div>
+
+          <div class="card card-danger mb-2">
+            <div class="card-block">
+                <br />
+              <h4>Grams: </h4>
+              <div id="gramsOutput"></div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+
+document.getElementById('kgInput').addEventListener('input',
+function(e){
+  let kgs = e.target.value;
+  document.getElementById('btn1').addEventListener('click',function(){
+  document.getElementById('lbsOutput').innerHTML= (kgs*2.20462).toFixed(2);
+  document.getElementById('ozOutput').innerHTML = (kgs*35.274).toFixed(2);
+  document.getElementById('gramsOutput').innerHTML= (kgs*1000).toFixed(0);
+  });
+});
+
+</script>
+</body>
+</html>

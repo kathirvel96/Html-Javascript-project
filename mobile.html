@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ANDROID SIM</title>
+    <style>
+        #lod{
+    display:block; 
+    text-align:center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: calc((100vh - 50px) / 2);
+    animation-name: dis;
+    animation-iteration-count: infinite;
+    animation-duration: 1200ms;
+}
+@keyframes dis{
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+#body{
+    border:15px solid black;
+    border-radius: 10px 10px 0px 0px;
+    height: 400px;
+    width: 280px;
+    margin-left: 4%;
+    background-image: url(" https://i.imgur.com/WmnpGvK.jpg");
+    background-size:cover; 
+    background-color:black;
+}
+#bottom{
+    border: 5px solid black;
+    border-radius: 0px 0px 10px 10px;
+    height: 50px;
+    width:300px;
+    position:relative;
+    left:4%;
+    top:-15px;
+    background-color: #000000;
+}
+#homeb{
+    border: 2px solid white;
+    height: 30px;
+    width: 60px;
+    border-radius: 7px;
+    margin-top: 8px;
+    margin-left: 118px;
+}
+#homeb:active{
+    border: 2px solid #666666;
+    height: 30px;
+    width: 60px;
+    border-radius: 7px;
+    margin-top: 8px;
+    margin-left: 118px;
+}
+img{
+    display: inline;
+    float: left;
+    height: 53px;
+    width: 53px;
+    margin: 7px;
+    position:relative;
+    top: 8px;
+}
+img.bing{
+    height: 55px;
+    width: 55px;
+    margin-left: 8px;
+    margin-top: 14px;
+    position:relative;
+}
+img.gmail{
+    height: 59px;
+    width: 55px;
+    margin-left: 8px;
+    margin-top: 10px;
+    position:relative;
+}
+img.playst{
+    height: 65px;
+    width: 55px;
+    margin-left: 8px;
+    margin-top: 10px;
+    position:relative;
+}
+img.youtube{
+    height: 48px;
+    width: 50px;
+    margin-left: 8px;
+    margin-top: 18px;
+    position:relative;
+}
+img.maps{
+    height: 57px;
+    width: 55px;
+    margin-top: 10px;
+    position:relative;
+    left: -140px;
+}
+img.game{
+    height: 52px;
+    width: 52px;
+    margin-left: 5px;
+    margin-top: -60px;
+    position:relative;
+}
+img.gallery{
+    height: 52px;
+    width: 52px;
+    margin-left: 145px;
+    margin-top: -60px;
+    position:relative;
+}
+#slider{
+    display:none;
+    height: 150px;
+    width: 280px;
+    position:relative;
+    left:-7px;
+    top:60px;
+}
+#prev{
+    display:none;
+    clear:both;
+    height: 108px;
+    width: 137px;
+    position:relative;
+    left:0px;
+    top:-98px;
+    color:blue;
+    border: 2px groove blue;
+    text-align:center;
+    font-size:50px;
+    padding-top:40px;
+}
+#next{
+    display:none;
+    clear:both;
+    height: 108px;
+    width: 137px;
+    position:relative;
+    left:140px;
+    top:-250px;
+    color:blue;
+    border: 2px groove blue;
+    font-size:50px;
+    text-align:center;
+    padding-top:40px;
+}
+#insta{
+    display:none;
+    height: 20px;
+    width: 20px;
+    position:relative;
+    top:-25px;
+    left:-5px;
+}
+#bing{
+    display:none;
+    position:relative;
+    top:0px;
+    left:0px;
+    height:400px;
+    width:280px;
+    border:1px solid black;
+}
+img.sololearn{
+    height: 52px;
+    width: 52px;
+    margin-left: 216px;
+    margin-top: -60px;
+    position:relative;
+}
+#sololearn{
+    display:none;
+    position:relative;
+    top:0px;
+    left:0px;
+    height:400px;
+    width:280px;
+    border:1px solid black;
+    overflow:scroll;
+}
+
+    </style>
+</head>
+<body>
+    <div id="lod">Loading...</div>
+    <div id="container" style="display:none;">
+        <div id="body">
+            <iframe id="bing" src="https://www.bing.com"></iframe>
+            <img class="bing" onclick="bing()" src="https://i.imgur.com/Ayndve2.png" />
+            <a href="http://mail.google.com">
+                <img class="gmail" src=" https//i.imgur.com/wR1XmtU.png" />
+            </a>
+            <a href=" https//play.google.com/store">
+            <img class="playst" src=" https//i.imgur.com/320qBKF.png" />
+            </a>
+            <a href="https://www.youtube.com">
+                <img class="youtube" src=" https//i.imgur.com/UYOTrha.png" />
+            </a> <br />
+            <a href="https://www.google.com/maps">
+                <img class="maps" src="https://i.imgur.com/TYgloV8.png" />
+            </a>
+            <a href="https://code.sololearn.com/WFLgOOL0XvcT/?ref=app">
+                <img class="game" src="https://i.imgur.com/PmJnsra.png" />
+            </a>
+            <a href=" https//instagram.com/_malay.jpg_?utm_source=ig_profile_share&igshid=eblttxrnrqkd">
+            <img id="insta" src="https://i.imgur.com/5xXhc90.png" />
+            </a>
+            <img class="gallery" onclick="gallery()" src=" https//i.imgur.com/KH7NCGv.png" />
+            <img id="slider" src="https://i.imgur.com/5tkZ2rz.jpg" />
+            <div id="prev" onclick="prev()">Prev</div>
+            <div id="next" onclick="next()">Next</div>
+            <iframe id="sololearn" src="https://www.sololearn.com"></iframe>
+            <img class="sololearn" src="https://i.imgur.com/vH8kTSd.png" onclick="sololearn()" />
+        </div>
+        <div id="bottom">
+            <div id="homeb" onclick="home()">
+            </div>
+        </div>
+        <script>
+            window.onload = function () {
+                lod = document.getElementById("lod");
+                con = document.getElementById("container")
+                lod.style.display = "none";
+                con.style.display = "block";
+            }
+            var check = 0;
+            var check1 = 0;
+            var images = [
+            'https://i.imgur.com/5tkZ2rz.jpg',
+            'https://i.imgur.com/eypFWGO.jpg',
+            'https://i.imgur.com/NwH78eI.jpg',
+            'https://i.imgur.com/EWnQaE5.jpg',
+            'https://i.imgur.com/SCJ5Aar.jpg',
+            'https://i.imgur.com/IRTdcRS.jpg',
+            'https://i.imgur.com/ZQFjIrl.jpg',
+            'https://i.imgur.com/jjMb1Ul.jpg'
+            ];
+            function gallery() {
+                var img = document.getElementsByTagName('img');
+                var body = document.getElementById('body');
+                var slider = document.getElementById('slider');
+                var prev = document.getElementById('prev');
+                var next = document.getElementById('next');
+                var insta = document.getElementById('insta');
+                for (i = 0; i < img.length; i++) {
+                    img[i].style.display = "none";
+                }
+                body.style.backgroundImage = "none";
+                slider.style.display = "inline";
+                prev.style.display = "block";
+                next.style.display = "block";
+                insta.style.display = "block";
+                alert("[It will take time to load images] \nAll images in gallery is clicked and edited by MALAY my college friend you can follow him on instagram");
+            }
+
+            function bing() {
+                var img = document.getElementsByTagName('img');
+                var body = document.getElementById('body');
+                var bing = document.getElementById('bing');
+                for (i = 0; i < img.length; i++) {
+                    img[i].style.display = "none";
+                }
+                body.style.backgroundImage = "none";
+                bing.style.display = "block";
+            }
+
+
+            function sololearn() {
+                var img = document.getElementsByTagName('img');
+                var body = document.getElementById('body');
+                var sololearn = document.getElementById('sololearn');
+                for (i = 0; i < img.length; i++) {
+                    img[i].style.display = "none";
+                }
+                body.style.backgroundImage = "none";
+                sololearn.style.display = "block";
+            }
+            function home() {
+                navigator.vibrate(53);
+                var bing = document.getElementById('bing');
+                var sololearn = document.getElementById('sololearn');
+                var img = document.getElementsByTagName('img');
+                var body = document.getElementById('body');
+                var slider = document.getElementById('slider');
+                var prev = document.getElementById('prev');
+                var next = document.getElementById('next');
+                var insta = document.getElementById('insta');
+                for (i = 0; i < img.length; i++) {
+                    img[i].style.display = "block";
+                }
+                slider.style.display = "none"; body.style.backgroundImage = "url(https://i.imgur.com/WmnpGvK.jpg)";
+                prev.style.display = "none";
+                next.style.display = "none";
+                insta.style.display = "none";
+                bing.style.display = "none";
+                sololearn.style.display = "none";
+            }
+
+            function next() {
+                check++;
+                check1++;
+                var prev = document.getElementById('prev');
+                var next = document.getElementById('next');
+                var slider = document.getElementById('slider');
+                if (check1 != 0) {
+                    prev.innerHTML = "";
+                    next.innerHTML = "";
+                    prev.style.border = "0px none";
+                    next.style.border = "0px none";
+                }
+                if (check >= images.length) {
+                    check = 0;
+                    slider.src = images[check];
+                }
+                else {
+                    slider.src = images[check];
+                }
+            }
+            function prev() {
+                check--;
+                check1++;
+                var prev = document.getElementById('prev');
+                var next = document.getElementById('next');
+                if (check1 != 0) {
+                    prev.innerHTML = "";
+                    next.innerHTML = "";
+                    prev.style.border = "0px none";
+                    next.style.border = "0px none";
+                }
+                if (check < 0) {
+                    check = images.length - 1;
+                    slider.src = images[check];
+                }
+                else {
+                    slider.src = images[check];
+                }
+            }
+
+
+
+        </script>
+</body>
+</html>

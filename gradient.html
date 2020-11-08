@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+    }
+    html{
+        background:#000000;
+    }
+    body{
+        height:400px;
+        width:400px;
+        background:white;
+        margin:5px auto;
+    }
+    .gradient{
+        height:60px;
+        width:240px;
+        border:none;
+        border-radius:28px;
+        background:linear-gradient(120deg,#ff0000,#00ff21,#4800ff);
+        background-size:200%;
+        color:white;
+        font-size:18px;
+        font-family:montserrat;
+        font-weight:500;
+        cursor:pointer;
+        transition:.5s;
+        outline:none;
+    }
+    .gradient:hover{
+        background-position:right;
+        transform:scale(1.07);
+        transition-delay:0.08s
+    }
+</style>
+<title>gradient</title>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <input type="button" value="mouse one me" class="gradient" />
+</body>
+</html>

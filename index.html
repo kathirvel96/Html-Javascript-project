@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <style>
+        * {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #222;
+    height: 100vh;
+}
+
+header {
+    background-color: #333;
+    padding: 40px 0;
+}
+
+header h1 {
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to right bottom, #fff, #777);
+    color: transparent;
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+main {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+main #container {
+    background-color: #333;
+    box-shadow: 0 5px 5px #111;
+    padding: 20px;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+#container .row:not(:last-child) {
+    margin-bottom: 9px;
+}
+
+#container input,
+#container button {
+    float: left;
+}
+
+#container input:focus,
+#container button:focus {
+    outline: none;
+}
+
+#container input {
+    background-color: #222;
+    border: 1px solid #999;
+    border-right-width: 0;
+    color: #999;
+    font-size: 22px;
+    font-weight: 300;
+    height: 80px;
+    padding-right: 14px;
+    text-align: right;
+    width: 261px;
+}
+
+#container button {
+    background-color: #222;
+    border: none;
+    box-shadow: 0 3px 0 #111;
+    color: #999;
+    font-size: 20px;
+    height: 80px;
+    margin-right: 7px;
+    width: 80px;
+}
+
+#container button:active {
+    box-shadow: 0 2px 0 #111;
+    transform: translateY(1px);
+}
+
+#container #clear,
+#container .operator,
+#container #equals {
+    color: #111;
+}
+
+#container #clear,
+#container .operator {
+    margin-right: 0;
+}
+
+#container #clear {
+    background-color: #e95a4b;
+    border: 1px solid #999;
+    border-left-width: 0;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#container #clear:active {
+    box-shadow: none;
+    transform: none;
+}
+
+#container .operator {
+    background-color: #999;
+    box-shadow: 0 3px 0 #555;
+}
+
+#container .operator:active {
+    box-shadow: 0 2px 0 #555;
+}
+
+#container #equals {
+    background-color: #2ecc71;
+    box-shadow: 0 3px 0 #155d34;
+}
+
+#container #equals:active {
+    box-shadow: 0 2px 0 #155d34;
+}
+
+@media only screen and (max-width: 400px) {
+    header {
+        padding: 28px 0;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    main {
+        padding: 40px 0;
+    }
+
+    main #container {
+        padding: 16px;
+    }
+
+    #container .row:not(:last-child) {
+        margin-bottom: 7px;
+    }
+
+    #container input {
+        font-size: 18px;
+        height: 60px;
+        padding-right: 10px;
+        width: 195px;
+    }
+
+    #container button {
+        font-size: 16px;
+        height: 60px;
+        margin-right: 5px;
+        width: 60px;
+    }
+}
+
+    </style>
+    <title>Calculator</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+   </head>
+
+<body>
+    <header>
+        <h1>Calculator</h1>
+        <p style="color:darkmagenta;text-align:center;font-family:Algerian;font-size:40px;">DEVELOPED BY KATHIR</p>
+    </header>
+
+    <main>
+        <div id="container">
+            <div class="row clearfix">
+                <input id="screen" value="0" disabled type="text">
+                <button id="clear">AC</button>
+            </div>
+            <div class="row clearfix">
+                <button class="number">1</button>
+                <button class="number">2</button>
+                <button class="number">3</button>
+                <button data-operator="+" class="operator">+</button>
+            </div>
+            <div class="row clearfix">
+                <button class="number">4</button>
+                <button class="number">5</button>
+                <button class="number">6</button>
+                <button data-operator="-" class="operator">-</button>
+            </div>
+            <div class="row clearfix">
+                <button class="number">7</button>
+                <button class="number">8</button>
+                <button class="number">9</button>
+                <button data-operator="*" class="operator">×</button>
+            </div>
+            <div class="row clearfix">
+                <button id="decimal">.</button>
+                <button class="number">0</button>
+                <button id="equals">=</button>
+                <button data-operator="/" class="operator">÷</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const screen = document.querySelector("#screen");
+        const clearButton = document.querySelector("#clear");
+        const equalsButton = document.querySelector("#equals");
+        const decimalButton = document.querySelector("#decimal");
+
+        let isFloat = false;
+        let signOn = false;
+        let firstNumber = "";
+        let operator = "";
+        let secondNumber = "";
+        let result = "";
+
+        const allClear = () => {
+            isFloat = false;
+            signOn = false;
+            firstNumber = "";
+            operator = "";
+            secondNumber = "";
+            result = "";
+            screen.value = "0";
+        };
+
+        const calculate = () => {
+            if (operator && result === "" && ![" ", "+", "-", "."].includes(screen.value[screen.value.length - 1])) {
+                secondNumber = screen.value.substring(firstNumber.length + 3);
+
+                switch (operator) {
+                    case "+":
+                        result = Number((Number(firstNumber) + Number(secondNumber)).toFixed(3));
+                        break;
+                    case "-":
+                        result = Number((Number(firstNumber) - Number(secondNumber)).toFixed(3));
+                        break;
+                    case "*":
+                        result = Number((Number(firstNumber) * Number(secondNumber)).toFixed(3));
+                        break;
+                    case "/":
+                        result = Number((Number(firstNumber) / Number(secondNumber)).toFixed(3));
+                        break;
+                    default:
+                }
+                screen.value = result;
+            }
+        };
+
+        clear.addEventListener("click", allClear);
+
+        document.querySelectorAll(".number").forEach((numberButton) => {
+            numberButton.addEventListener("click", () => {
+                if (screen.value === "0") {
+                    screen.value = numberButton.textContent;
+                } else if ([" 0", "+0", "-0"].includes(screen.value.substring(screen.value.length - 2))
+                        && numberButton.textContent === "0") {
+                } else if ([" 0", "+0", "-0"].includes(screen.value.substring(screen.value.length - 2))
+                        && numberButton.textContent !== "0") {
+                    screen.value = screen.value.substring(0, screen.value.length - 1) + numberButton.textContent;
+                } else if (result || result === 0) {
+                    allClear();
+                    screen.value = numberButton.textContent;
+                } else {
+                    screen.value += numberButton.textContent;
+                }
+            });
+        });
+
+        decimalButton.addEventListener("click", () => {
+            if (result || result === 0) {
+                allClear();
+                isFloat = true;
+                screen.value += ".";
+            } else if (!isFloat) {
+                isFloat = true;
+                if ([" ", "+", "-"].includes(screen.value[screen.value.length - 1])) {
+                    screen.value += "0.";
+                } else {
+                    screen.value += ".";
+                }
+            }
+        });
+
+        document.querySelectorAll(".operator").forEach((operatorButton) => {
+            operatorButton.addEventListener("click", () => {
+                if (result || result === 0) {
+                    isFloat = false;
+                    signOn = false;
+                    firstNumber = String(result);
+                    operator = operatorButton.dataset.operator;
+                    result = "";
+                    screen.value = `${firstNumber} ${operatorButton.textContent} `;
+                } else if (operator && ![" ", "+", "-", "."].includes(screen.value[screen.value.length - 1])) {
+                    calculate();
+                    isFloat = false;
+                    signOn = false;
+                    firstNumber = String(result);
+                    operator = operatorButton.dataset.operator;
+                    result = "";
+                    screen.value = `${firstNumber} ${operatorButton.textContent} `;
+                } else if (!operator) {
+                    isFloat = false;
+                    firstNumber = screen.value;
+                    operator = operatorButton.dataset.operator;
+                    screen.value += ` ${operatorButton.textContent} `;
+                } else if (!signOn
+                        && !["*", "/"].includes(operatorButton.dataset.operator)
+                        && screen.value[screen.value.length - 1] === " ") {
+                    signOn = true;
+                    screen.value += operatorButton.textContent;
+                }
+            });
+        });
+
+        equalsButton.addEventListener("click", calculate);
+
+    </script>
+</body>
+</html>

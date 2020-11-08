@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{
+            background:yellow;
+        }
+        .container{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            width:100px;
+            height:100px;
+            border-radius:50%;
+            border:4px solid #fff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .dot{
+            width:7px;
+            height:7px;
+            background:#44d6e9;
+            border-radius:50%;
+        }
+        .line{
+            position:absolute;
+            left:50%;
+            top:50%;
+            width:40px;
+            height:2px;
+            background:#44d6e9;
+            transform-origin:left;
+            animation:effect 1s linear infinite;
+        }
+        .two{
+            width:25px;
+            animation:effect 6s linear infinite:
+        }
+        @keyframes effect{
+            0%{
+                transform:rotate(0);
+            }
+            100%{
+                transform:rotate(360deg);
+            }
+        }
+    </style>
+    <title>css animation</title>
+</head>
+<body>
+    <div class="container">
+        <div class="line"></div>
+        <div class="line two"></div>
+        <div class="dot"></div>
+    </div>
+</body>

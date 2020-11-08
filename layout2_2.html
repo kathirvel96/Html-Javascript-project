@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LAYOUT</title>
+    <script type="text/javascript">
+
+function msg(){
+ alert("WELCOME TO INNOSPIRE SYSTEMS CORPORATION");
+}
+    </script>
+<style>
+*{
+margin:0px;
+padding:0px;
+}
+html{
+background:#111;
+}
+body{
+background:silver;
+height:1100px;
+width:800px;
+margin:10px auto;
+}
+p{
+    width: 100%;
+  height: 80px;
+  background:blue;
+  transition: width 2s, height 2s, transform 2s;
+}
+
+p:hover {
+  width: 100%;
+  height: 80px;
+  transform: rotate(360deg);
+}
+#header{
+background: url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat;
+  padding: 15px;
+height:100px;
+width:100%;
+}
+#nav{
+background:purple;
+height:40px;
+width:100%;
+}
+#container{
+background:yellow;
+height:832px;
+width:100%;
+}
+#footer{
+  background-color: green;
+  color: white;
+  padding: 25px;
+  text-align: center;
+  height:30px;
+  width:750px;
+}
+
+#footer:hover {
+  background-color: blue;
+}
+#rtbox{
+background:orange;
+height:100%;
+width:50%;
+float:right;
+}
+#lftbox{
+background:red;
+height:100%;
+width:50%;
+float:left;
+}
+/* unvisited link */
+a:link ,a:visited{
+  color: red;
+  background-color: forestgreen;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+a:hover, a:active {
+  background-color: red;
+}
+#c4{
+  width: 200px;
+  height: 160px;
+  font-size:20px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-iteration-count: 100;
+}
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  70% {background-color:forestgreen; left:0px; top:0px;}
+}
+</style>
+</head>
+<body>
+    <form>
+        <input type="button" value="CLICK HERE" onclick="msg()" />
+    </form> 
+<div id="header" style="color:red;text-align:center;font-size:40px;text-shadow:2px 2px blue ,0px 4px green;text-decoration:line-through;"><strong>INNOSPIRE SYSTEMS CORPORATION</strong></div>
+<div id="nav" style="color:deeppink;text-align:center;font-size:20px;font-family:Impact, Charcoal, sans-serif">Innovate your business with <mark>INNOSPIRE SYSTEMS CORPORATION</mark></div>
+<div id="container">
+<div id="rtbox" style="align-content:center;color:black;font-size:20px">our solutions are:
+    <dl>
+    <li>BUISNESS INTELLIGENCE</li>
+    <li>CUSTOMER RELATIONSHIP MANAGEMENT</li>
+    <li>DATA SCIENCE ANALYTICS</li>
+        <li>ENTERPRISE PERFORMANCE MANAGEMENT</li>
+        <li>DIGITAL TRANSFORMATION</li>
+    </dl>
+    <br />
+    links for your reference:
+    <ul style="display:inline;">
+        <li><a href="https://www.innospire.com/#" target="_blank">our services</a></li>
+    <hr />
+        <li><a href="https://www.innospire.com/#" target="_blank">our solutions</a></li>
+    </ul><br />
+    <h2 id=c4>contact us at:<pre>Location:
+281,State Route 
+79,Morganville
+NJ,07751
+info@innospire.com
+(732)705-7771</pre></h2>
+    <strong>WITH INNOSPIRE </strong>Your custom IT application experience starts here view the reviews by our pre-customers that's better to know about our achievements and our employees presence of working on your project innovation in the buisness development was the most important one to achieve the buisness goals easily and also to get in touch with your customers be focus in your product and give us your requirement we will develop it and make your organization to the digital one.
+   <br />
+    follow us on facebook:<a href="https://www.facebook.com/InnospireSystems" target="_blank">innospire</a></div>
+<div id="lftbox">Founded in 1996, Innospire Systems Corporation is a global software company delivering cutting edge technology solutions to enterprise and medium-sized businesses using frameworks designed to accelerate delivery and reduce costs. For over 25 years, Innospire has established itself as a leading IT services company, providing customers with a comprehensive range of solutions to help achieve their business goals<hr />
+    <br />
+    <strong>Innospire specializes in predictive analytics, performance management, as well as mobile and custom application development. We create solutions from concepts to delivery and almost all our project work is based on fixed prices. We offer application rationalization & modernization, enterprise architecture and portfolio management services. We have worked in Healthcare, Finance, and Retail industries. We are based in Central New Jersey.</strong>
+    <br />
+    <img src="https://www.innospire.com/assets/img/innospiresystemslogo.png" alt="innospire" style="width:400px;height:100px;">
+    <br />
+    <br />
+    <img src="https://www.innospire.com/assets/img/hero-img.png" alt="innospire" style="width:250px;height:200px;">
+   <p><strong>Inspire operational efficiency & reduce costs at downstream as well as management level over Innospire's Digital Transformation & Data Analytics services</strong></p></div>
+    <strong>“Websites promote you 24/7: No employee will do that.”</strong></div>
+<div id="footer"style="color:greenyellow;text-align:center;font-size:28px;">LAYOUT DESIGNED BY KATHIRVEL</div>
+</body>

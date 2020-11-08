@@ -1,0 +1,2526 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+:root {
+  --color-main-bg: #0a0c1b;
+  --color-sky: #1cbfff;
+  --color-text-grey: #9294a9;
+  --color-green: #69fff3;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-size: 62.5%;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Roboto", sans-serif;
+  background: var(--color-main-bg);
+  color: #eee;
+}
+
+.mb1 {
+  margin-bottom: 1rem !important;
+}
+
+.mb2 {
+  margin-bottom: 2rem !important;
+}
+
+.mt0 {
+  margin-top: 0.5rem !important;
+}
+
+.mt1 {
+  margin-top: 1rem !important;
+}
+
+.mt2 {
+  margin-top: 2rem !important;
+}
+
+.center {
+  text-align: center;
+}
+
+.logo {
+  text-align: center;
+  background: var(--color-main-bg);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
+
+.logo__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.6em;
+  padding: 0.4rem;
+  letter-spacing: 1px;
+  color: #9198a8;
+}
+
+.logo__name span {
+  margin-right: 0.5rem;
+}
+
+.btn {
+  background-color: var(--color-sky);
+  color: var(--color-main-bg);
+  margin: 1rem;
+  padding: 0.3rem 1rem;
+  font-size: 1.4em;
+  border: none;
+  outline: none;
+  border-radius: 10rem;
+}
+
+.bottom-menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+  z-index: 10;
+  background: var(--color-main-bg);
+}
+
+.bottom-menu__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #646577;
+  fill: #646577;
+}
+
+.bottom-menu__icon {
+  font-size: 2.1em;
+}
+
+.bottom-menu .current-menu-selected {
+  color: #fff;
+  fill: #fff;
+}
+
+.settings-page {
+  padding: 0.5rem 1rem;
+  padding-bottom: 5rem;
+  background-color: var(--color-main-bg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.settings-page__items {
+  border-bottom: solid 1px #202231;
+  padding: 0.5rem 0;
+}
+
+.settings-page__title {
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: var(--color-text-grey);
+  font-weight: 500;
+}
+
+.settings-page__units-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.5em;
+}
+
+.settings-page__units-holder__units {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.settings-page__units-holder__item {
+  padding: 1rem 0;
+  color: #b6b7bb;
+  width: 5rem;
+  text-align: center;
+}
+
+.settings-page__units-holder__scale-item {
+  padding: 1rem 0;
+  color: #b6b7bb;
+  width: 5rem;
+  text-align: center;
+}
+
+.settings-page__units-holder--active {
+  color: #fff;
+  border-bottom: solid 2px var(--color-green);
+}
+
+.settings-page__ad-choice .settings-page__title {
+  text-transform: none;
+}
+
+.settings-page__flex {
+  font-size: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.settings-page__flex__ads-btn {
+  font-size: 0.85em;
+  border: 1px solid var(--color-sky);
+  padding: 0.2rem 1.7rem;
+  border-radius: 3rem;
+  color: var(--color-sky);
+}
+
+.settings-page__network-scanning {
+  font-size: 1.5em;
+  margin-top: 0.5rem;
+  color: #b6b7bb;
+  padding: 0.5rem 0;
+  border-bottom: solid 1px #202231;
+}
+
+.settings-page__network-scanning__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.settings-page__network-scanning a {
+  color: var(--color-sky);
+}
+
+.settings-page__switch {
+  position: relative;
+  width: 35px;
+  height: 16px;
+  margin-right: 1rem;
+  display: block;
+}
+
+.settings-page__switch input {
+  opacity: 0;
+}
+
+.settings-page__switch input:checked + .settings-page__slider {
+  background-color: #28555b;
+}
+
+.settings-page__switch input:checked + .settings-page__slider:before {
+  -webkit-transform: translateX(14px);
+          transform: translateX(14px);
+  background: #68faef;
+}
+
+.settings-page__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #55555f;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+.settings-page__slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  top: -4px;
+  bottom: 0;
+  left: 0px;
+  background-color: #b9b9b9;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.settings-page i {
+  font-size: 1em !important;
+}
+
+.settings-page__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.settings-page__wrapper i {
+  font-size: 1.5em !important;
+}
+
+.settings-page__common {
+  padding: 1rem 0;
+}
+
+.page-1 {
+  background-color: var(--color-main-bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  z-index: 20;
+}
+
+.page-1__sup {
+  margin-top: 3rem;
+  padding: 0.8rem 0;
+  font-size: 2.2em;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.page-1__sub {
+  font-size: 1.4em;
+}
+
+.page-1__img {
+  height: 10rem;
+  width: 7rem;
+  overflow: hidden;
+}
+
+.page-1__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.page-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: var(--color-main-bg);
+  padding-bottom: 3rem;
+  z-index: 19;
+  overflow-y: scroll;
+}
+
+.page-2__top {
+  padding: 0 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.page-2__sup {
+  margin-top: 3rem;
+  padding: 0.8rem 0;
+  font-size: 2.6em;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.page-2__sub {
+  font-size: 1.6em;
+}
+
+.page-2__img {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.page-2__content {
+  margin: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #1f2737;
+}
+
+.page-2__item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.page-2__title {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #fff;
+}
+
+.page-2__title i {
+  display: inline-block;
+  font-size: 1.2em;
+  margin-right: 0.3rem;
+  -webkit-transform: translateY(0.1rem);
+          transform: translateY(0.1rem);
+}
+
+.page-2__desc {
+  padding: 0.2rem 0;
+  font-size: 1.4em;
+  color: #9198a8;
+}
+
+.vpn-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-main-bg);
+}
+
+.vpn-page__grid-container {
+  text-align: center;
+}
+
+.vpn-page__arrow-up {
+  width: 26px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.vpn-page__title {
+  margin-top: 1rem;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.vpn-page__desc {
+  margin: 0.2rem 0;
+  font-size: 1.4em;
+  font-weight: 500;
+  color: var(--color-text-grey);
+}
+
+.vpn-page__link {
+  margin: 0.2rem 0;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: var(--color-sky);
+  text-decoration: none;
+}
+
+.vpn-page__powered-By {
+  color: #5e5f73;
+  font-size: 1.5em;
+  margin-top: 5rem;
+}
+
+.vpn-page__powered-By span {
+  font-weight: 700;
+}
+
+.vpn-page__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #373950;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 44px;
+  cursor: pointer;
+}
+
+.vpn-page__switch {
+  position: relative;
+  width: 120px;
+  height: 58px;
+  margin-right: 1rem;
+  display: block;
+  margin: auto;
+}
+
+.vpn-page__switch input {
+  opacity: 0;
+}
+
+.vpn-page__switch input:checked + .vpn-page__slider {
+  background-color: #28555b;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff8866), to(#feb779));
+  background: linear-gradient(#ff8866, #feb779);
+}
+
+.vpn-page__circle {
+  position: absolute;
+  height: 54px;
+  width: 54px;
+  top: 2px;
+  bottom: 0;
+  left: 2px;
+  background-color: #9092a7;
+  color: #373950;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+}
+
+.vpn-page__circle i {
+  font-size: 2.8em;
+}
+
+.vpn-page-switch--active {
+  color: #ff9d70 !important;
+  -webkit-transform: translateX(62px);
+          transform: translateX(62px);
+  background: #fff;
+}
+
+.tools-page {
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.tools-page__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #31334a;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 0 .5rem;
+  padding-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.tools-page img {
+  width: 50px;
+  margin-right: 1rem;
+}
+
+.tools-page__title {
+  font-size: 1.5em;
+  margin-top: .5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.tools-page__desc {
+  color: var(--color-text-grey);
+  margin-top: 1rem;
+  font-size: 1.4em;
+}
+
+.tools-page i {
+  margin-top: .5rem;
+  font-size: 2em;
+  display: block;
+}
+
+.home {
+  background-color: var(--color-main-bg);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.home__animation-wrapper {
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home__go-circle {
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid var(--color-sky);
+  border-radius: 50%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-animation: pulse-down 3s ease-out infinite;
+          animation: pulse-down 3s ease-out infinite;
+}
+
+.home__go-circle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--color-sky);
+  -webkit-animation: go-animation 3s 0.01s infinite;
+          animation: go-animation 3s 0.01s infinite;
+}
+
+.home__go-text {
+  font-size: 4em;
+  font-family: "Montserrat", sans-serif;
+}
+
+.home__list {
+  padding: 0 1rem;
+  font-size: 0.9em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+}
+
+.home__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.home__img-wrapper {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-text-grey);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home__img-wrapper i {
+  font-size: 1.8em;
+  color: var(--color-text-grey);
+}
+
+.home__text-content--1 {
+  font-size: 1.8em;
+}
+
+.home__text-content--2 {
+  font-size: 1.4em;
+}
+
+.home__text-content--2 span {
+  color: var(--color-text-grey);
+}
+
+.home__text-content--blue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--color-sky);
+}
+
+.home__text-content--blue span {
+  text-decoration: underline;
+}
+
+.home__text-content--blue i {
+  text-decoration: none !important;
+}
+
+.home__connection-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.home__connection-icon i {
+  font-size: 1.3em;
+  position: absolute;
+}
+
+.home__connection-icon__arrow-1 {
+  top: 2px;
+  left: 25%;
+}
+
+.home__connection-icon__arrow-2 {
+  top: 10px;
+  left: 50%;
+}
+
+.home__connection-icon__arrow-3 {
+  top: 17px;
+  left: 25%;
+}
+
+@-webkit-keyframes pulse-down {
+  90% {
+    -webkit-transform: scale(0.96);
+            transform: scale(0.96);
+  }
+}
+
+@keyframes pulse-down {
+  90% {
+    -webkit-transform: scale(0.96);
+            transform: scale(0.96);
+  }
+}
+
+@-webkit-keyframes go-animation {
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.4);
+            transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes go-animation {
+  50% {
+    -webkit-transform: translate(-50%, -50%) scale(1.4);
+            transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+.about-speedtest-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background: var(--color-main-bg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 5;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.about-speedtest-page__logo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-main-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about-speedtest-page__logo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 1px;
+  color: #9198a8;
+  padding: 0.2rem !important;
+  margin-top: 0.5rem;
+}
+
+.about-speedtest-page__logo-text span {
+  margin-right: 0.5rem;
+}
+
+.about-speedtest-page__back {
+  position: absolute;
+  font-size: 2.8em;
+  left: 0.8rem;
+  top: 0.4rem;
+}
+
+.about-speedtest-page__container {
+  padding: 0 1rem;
+}
+
+.about-speedtest-page__text {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+.about-speedtest-page h1 {
+  padding: 1rem 0;
+  letter-spacing: 1px;
+}
+
+.about-speedtest-page p {
+  font-size: 0.9em;
+}
+
+.about-speedtest-page__version {
+  text-align: center;
+  font-weight: 300;
+  color: var(--color-text-grey);
+}
+
+.ad-choice-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background: var(--color-main-bg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 5;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.ad-choice-page__logo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-main-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ad-choice-page__logo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.3em;
+  padding: 0.2rem !important;
+  margin-top: 0.5rem;
+}
+
+.ad-choice-page__logo-text span {
+  margin-right: 0.5rem;
+}
+
+.ad-choice-page__back {
+  position: absolute;
+  font-size: 2.8em;
+  left: 0.8rem;
+  top: 0.4rem;
+}
+
+.ad-choice-page__container {
+  padding: 0 1rem;
+}
+
+.ad-choice-page__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.5em;
+}
+
+.ad-choice-page__switch {
+  position: relative;
+  width: 35px;
+  height: 16px;
+  margin-right: 1rem;
+  display: block;
+}
+
+.ad-choice-page__switch input {
+  opacity: 0;
+}
+
+.ad-choice-page__switch input:checked + .ad-choice-page__slider {
+  background-color: #28555b;
+}
+
+.ad-choice-page__switch input:checked + .ad-choice-page__slider:before {
+  -webkit-transform: translateX(14px);
+          transform: translateX(14px);
+  background: #68faef;
+}
+
+.ad-choice-page__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #55555f;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+.ad-choice-page__slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  top: -4px;
+  bottom: 0;
+  left: 0px;
+  background-color: #b9b9b9;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.ad-choice-page__text {
+  color: #b4b7c0;
+  margin-top: 1.5rem;
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+.ad-choice-page a {
+  color: var(--color-sky);
+}
+
+.analytics-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background: var(--color-main-bg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 5;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.analytics-page__logo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-main-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.analytics-page__logo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.3em;
+  padding: 0.2rem !important;
+  margin-top: 0.5rem;
+}
+
+.analytics-page__logo-text span {
+  margin-right: 0.5rem;
+}
+
+.analytics-page__back {
+  position: absolute;
+  font-size: 2.8em;
+  left: 0.8rem;
+  top: 0.4rem;
+}
+
+.analytics-page__container {
+  padding: 0 1rem;
+}
+
+.analytics-page__switch-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5em;
+}
+
+.analytics-page__title {
+  max-width: 260px;
+}
+
+.analytics-page__switch {
+  position: relative;
+  width: 35px;
+  height: 16px;
+  margin-right: 1rem;
+  display: inline-block;
+}
+
+.analytics-page__switch input {
+  opacity: 0;
+}
+
+.analytics-page__switch input:checked + .analytics-page__slider {
+  background-color: #28555b;
+}
+
+.analytics-page__switch input:checked + .analytics-page__slider:before {
+  -webkit-transform: translateX(14px);
+          transform: translateX(14px);
+  background: #68faef;
+}
+
+.analytics-page__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #55555f;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+.analytics-page__slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  top: -4px;
+  bottom: 0;
+  left: 0px;
+  background-color: #b9b9b9;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.analytics-page__text {
+  color: #b4b7c0;
+  margin-top: 1.5rem;
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+.analytics-page__heading {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.results-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  background: var(--color-main-bg);
+}
+
+.results-page__logo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-main-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.results-page__logo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.6em;
+  padding: 0.4rem;
+  letter-spacing: 1px;
+  color: #9198a8;
+  padding: 0.2rem !important;
+  margin-top: 0.5rem;
+}
+
+.results-page__logo-text span {
+  margin-right: 0.5rem;
+}
+
+.results-page__top {
+  position: absolute;
+  font-size: 2em;
+  right: 0;
+  top: 0.7rem;
+}
+
+.results-page__top i {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.results-page__grid-container {
+  display: -ms-grid;
+  display: grid;
+  width: calc(100% - 2rem);
+  -ms-grid-columns: 16% 20% 25% 35%;
+      grid-template-columns: 16% 20% 25% 35%;
+  padding: 1rem;
+  color: #b6b7bc;
+}
+
+.results-page--grid--1st {
+  background: #202539;
+  margin-top: 3rem;
+}
+
+.results-page__item-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5em;
+  font-weight: 200;
+  color: #b6b7bc;
+}
+
+.results-page__item-title i {
+  margin-right: 0.3rem;
+}
+
+.results-page__lte {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 500;
+  font-size: 1.2em;
+  width: 35px;
+  height: 35px;
+  margin-top: -0.2rem;
+  border-radius: 50%;
+  border: 1px solid #29545b;
+  color: #69fff3;
+}
+
+.results-page__date {
+  font-weight: 500;
+  font-size: 1.1em;
+  padding-top: 0.2rem;
+}
+
+.results-page__mbps {
+  font-size: 3em;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+  margin-top: -0.5rem;
+}
+
+.results-page__mbps-last {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 3em;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+  width: 100%;
+  margin-top: -0.5rem;
+}
+
+.results-page__mbps-last i {
+  font-size: 0.6em;
+}
+
+.meter-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--color-main-bg);
+  z-index: 5;
+  display: none;
+  padding-bottom: 6rem;
+}
+
+.meter-page__top {
+  padding: 0 0.5rem;
+}
+
+.meter-page__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.6em;
+  letter-spacing: 1px;
+  color: #9198a8;
+  font-weight: 500;
+  padding: 0.2rem;
+}
+
+.meter-page__logo span {
+  margin-right: 0.5rem;
+}
+
+.meter-page__close {
+  position: absolute;
+  top: 0;
+  font-size: 3em;
+}
+
+.meter-page__score-board {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.meter-page__score-board__item {
+  margin-right: 1rem;
+}
+
+.meter-page__score-board__item i {
+  font-size: 1.4em;
+  margin-right: 0.2rem;
+}
+
+.meter-page__score-board__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2em;
+}
+
+.meter-page__score-board__score {
+  margin-top: 0.5rem;
+  margin-left: 1.2rem;
+  border-bottom: 2px solid #5e5f73;
+  display: inline-block;
+  width: 1.3rem;
+  font-size: 2em;
+  font-family: "Oswald", sans-serif;
+  font-weight: 200;
+}
+
+.meter-page__status {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.meter-page__status__item {
+  font-size: 1.2em;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1rem;
+  border-right: 1px solid #5e5f73;
+}
+
+.meter-page__status i {
+  font-weight: normal !important;
+  margin-right: 0.2rem;
+  color: #5e5f73;
+  font-size: 1.4em;
+}
+
+.meter-page__status__last {
+  border: none;
+}
+
+.meter-page__status__dash {
+  background: #5e5f73;
+  height: 2px;
+  width: 0.8rem;
+  margin: 0 0.2rem;
+}
+
+.meter-page__meter-container {
+  position: relative;
+  height: 270px;
+  width: 270px;
+  margin: auto;
+  margin-top: 3rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.meter-page__niddle {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(10%, #fff), color-stop(40%, #adb0b9), to(transparent));
+  background-image: linear-gradient(to right, #fff 10%, #adb0b9 40%, transparent);
+  height: 1rem;
+  width: 30%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transform-origin: center right;
+          transform-origin: center right;
+  -webkit-clip-path: polygon(0% 25%, 115% 0%, 113% 100%, 0% 66%);
+          clip-path: polygon(0% 25%, 115% 0%, 113% 100%, 0% 66%);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.meter-page__circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+  background-color: #1f2642;
+}
+
+.meter-page__circle-2 {
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+          clip-path: circle(50% at 50% 50%);
+  background-color: var(--color-main-bg);
+  z-index: 2;
+}
+
+.meter-page__fill-color {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  -webkit-transform-origin: center right;
+          transform-origin: center right;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-transform: rotate(-140deg);
+          transform: rotate(-140deg);
+  background-color: #05a7d8;
+}
+
+.meter-page__circle-helper {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  background-color: #1f2642;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.meter-page__hider {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  bottom: -2rem;
+  -webkit-clip-path: polygon(50% 0%, -30% 100%, 130% 100%);
+          clip-path: polygon(50% 0%, -30% 100%, 130% 100%);
+  background-color: var(--color-main-bg);
+  z-index: 1;
+}
+
+.meter-page__numbers {
+  position: absolute;
+  font-size: 1.5em;
+}
+
+.meter-page__0 {
+  right: 80%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 11rem;
+}
+
+.meter-page__5 {
+  right: 90%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 7.5rem;
+}
+
+.meter-page__10 {
+  right: 88%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  margin-top: 4rem;
+}
+
+.meter-page__15 {
+  right: 75%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  margin-top: 1.5rem;
+}
+
+.meter-page__20 {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 0.5rem;
+}
+
+.meter-page__30 {
+  left: 75%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 1.5rem;
+}
+
+.meter-page__50 {
+  left: 88%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 4rem;
+}
+
+.meter-page__75 {
+  left: 90%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 7.5rem;
+}
+
+.meter-page__100 {
+  left: 80%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 11rem;
+}
+
+.meter-page__speed {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  color: #fff;
+  font-size: 4em;
+  font-family: "Oswald", sans-serif;
+  font-weight: 200;
+}
+
+.meter-page__speed-unit {
+  text-align: center;
+  font-size: 0.4em;
+  margin-top: -0.5rem;
+  font-family: "Roboto", sans-serif;
+  color: #525367;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.meter-page__speed-unit i {
+  margin-right: 0.3rem;
+}
+
+.learn-more-page {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background: rgba(41, 41, 41, 0.425);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 5;
+}
+
+.learn-more-page__btn-close {
+  font-size: 2.4em;
+  margin-top: 1rem;
+  margin-left: 88%;
+}
+
+.learn-more-page__slider {
+  margin: 1rem;
+  height: 70%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (100%)[3];
+      grid-template-columns: repeat(3, 100%);
+  grid-column-gap: 1rem;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.learn-more-page__slider::-webkit-scrollbar {
+  display: none;
+}
+
+.learn-more-page__slider-items {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.learn-more-page__slider-items--1 {
+  background-color: #26273b;
+}
+
+.learn-more-page__slider-items--2 {
+  background-color: #929200;
+  background-color: #26273b;
+}
+
+.learn-more-page__slider-items--3 {
+  background-color: blue;
+  background-color: #26273b;
+}
+
+.learn-more-page__img-wrapper {
+  height: 40%;
+  overflow: hidden;
+}
+
+.learn-more-page__img-wrapper video {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.learn-more-page__content {
+  padding: 1rem;
+}
+
+.learn-more-page__content h1 {
+  font-size: 1.6em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.learn-more-page__content p {
+  font-size: 1.5em;
+  color: #8d90a3;
+}
+
+.learn-more-page__pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.learn-more-page__pagination > div {
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 0.4rem;
+}
+
+.privacy-policy-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background: var(--color-main-bg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 5;
+  padding-top: 3rem;
+  padding-bottom: 12rem;
+}
+
+.privacy-policy-page__logo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-main-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.privacy-policy-page__logo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 1px;
+  color: #9198a8;
+  padding: 0.2rem !important;
+  margin-top: 0.5rem;
+}
+
+.privacy-policy-page__logo-text span {
+  margin-right: 0.5rem;
+}
+
+.privacy-policy-page__back {
+  position: absolute;
+  font-size: 2.8em;
+  left: 0.8rem;
+  top: 0.4rem;
+}
+
+.privacy-policy-page__top-container {
+  padding: 3rem 1rem;
+  padding-bottom: 1rem;
+}
+
+.privacy-policy-page__top-container .top-container__heading {
+  font-size: 3em;
+  font-weight: 500;
+}
+
+.privacy-policy-page__top-container img {
+  width: 150px;
+}
+
+.privacy-policy-page__top-container .top-container__text {
+  font-size: 1.5em;
+  margin: 1rem 0;
+}
+
+.privacy-policy-page__top-container .top-container__text:last-child {
+  padding-bottom: 2rem;
+  border-bottom: solid 1px #202231;
+}
+
+.privacy-policy-page__top-container span {
+  color: var(--color-sky);
+}
+
+.privacy-policy-page__links-holder {
+  padding: 0 1.5rem;
+  line-height: 1.4;
+}
+
+.privacy-policy-page__link {
+  color: var(--color-sky);
+  font-size: 1.5em;
+}
+
+.privacy-policy-page__link span {
+  color: #fff;
+}
+
+.term-of-use-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background: var(--color-main-bg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 5;
+  padding-top: 3rem;
+  padding-bottom: 18rem;
+  line-height: 1.6;
+}
+
+.term-of-use-page__logo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-main-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.term-of-use-page__logo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 1px;
+  color: #9198a8;
+  padding: 0.2rem !important;
+  margin-top: 0.5rem;
+}
+
+.term-of-use-page__logo-text span {
+  margin-right: 0.5rem;
+}
+
+.term-of-use-page__back {
+  position: absolute;
+  font-size: 2.8em;
+  left: 0.8rem;
+  top: 0.4rem;
+}
+
+.term-of-use-page__container {
+  padding: 0.5rem;
+}
+
+.term-of-use-page__heading {
+  font-size: 3.2em;
+  font-weight: 400;
+}
+
+.term-of-use-page__text {
+  font-size: 1.4em;
+  margin: 1rem 0;
+}
+
+.term-of-use-page__box {
+  background: #1a1b2f;
+  font-size: 1.5em;
+  padding: 1rem;
+  border: 1px solid #9194a7;
+}
+
+.term-of-use-page span {
+  color: var(--color-sky);
+}
+
+.term-of-use-page b {
+  font-weight: 500 !important;
+}
+
+.feedback-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background: var(--color-main-bg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  z-index: 5;
+  padding-top: 3rem;
+  padding-bottom: 18rem;
+  line-height: 1.6;
+}
+
+.feedback-page__logo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--color-main-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.feedback-page__logo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 1px;
+  color: #9198a8;
+  padding: 0.2rem !important;
+  margin-top: 0.5rem;
+}
+
+.feedback-page__logo-text span {
+  margin-right: 0.5rem;
+}
+
+.feedback-page__back {
+  position: absolute;
+  font-size: 2.8em;
+  left: 0.8rem;
+  top: 0rem;
+}
+
+.feedback-page__ok {
+  position: absolute;
+  font-size: 2em;
+  right: 0.8rem;
+  top: 0.4rem;
+  color: #9198a8;
+}
+
+.feedback-page__text-area {
+  padding: 0 0.5rem;
+}
+
+.feedback-page textarea {
+  width: 100%;
+  font-size: 1.7em;
+  resize: none;
+}
+
+.feedback-page textarea:focus {
+  border: 0;
+  outline: 0;
+}
+
+.network-scanning-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: var(--color-main-bg);
+  padding-bottom: 3rem;
+  min-height: 100%;
+  z-index: 18;
+}
+
+.network-scanning-page__container {
+  margin-top: 3rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.network-scanning-page__title {
+  font-size: 3em;
+  font-weight: 300;
+}
+
+.network-scanning-page img {
+  width: 240px;
+  margin: 1rem 0;
+  display: inline-block;
+}
+
+.network-scanning-page__text {
+  font-size: 1.5em;
+  padding: 0 1.7rem;
+  line-height: 1.3;
+}
+
+.network-scanning-page a {
+  color: #3c8eb6;
+  font-weight: 200;
+}
+
+.network-scanning-page__btn-holder {
+  margin-top: 2rem;
+  font-size: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.network-scanning-page__btn-deny {
+  color: var(--color-sky);
+}
+
+.network-scanning-page__btn {
+  background: var(--color-sky);
+  color: #0a0c1b;
+  padding: 0.2rem 2.6rem;
+  border-radius: 1rem;
+}
+
+.support-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 10;
+  display: none;
+  overflow-y: scroll;
+}
+
+.support-page__top {
+  background-color: var(--color-main-bg);
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.support-page__top > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.support-page__top h1 {
+  margin-left: 1rem;
+  font-size: 1.8em;
+}
+
+.support-page__top i {
+  font-size: 2em;
+}
+
+.support-page__item {
+  padding: 1rem;
+  color: #000;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.support-page__item i {
+  font-size: 2em;
+}
+
+.support-page__contents {
+  padding: 0 1rem;
+  color: #000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.486);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  overflow: hidden;
+  height: 10rem;
+}
+
+.support-page__contents h1 {
+  color: #646464;
+  font-size: 1.4em;
+  padding-bottom: 1rem;
+}
+
+.support-page__contents p {
+  font-size: 1.6em;
+  padding-bottom: 1rem;
+}
+
+.content--show {
+  height: 0;
+  border-bottom: 0;
+  opacity: 0;
+}
+
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speed Test by Ookla</title>
+
+    <!-- Icon Library -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <!-- ------------ -->
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script>
+        /*
+
+        let app,openMeter=![],isVpnConnected=![],routerStack=[],root,isClose=!![],currentPage;const router=_0x591c29=>{switch(_0x591c29){case'/':case'speed':return homePage();case'vpn':return VPNPage();case'results':return resultsPage();case'tools':return toolPage();case'settings':return settingPage();case'ad-choice':return adChoicesPage();case'analytics':return analyticsPage();case'about-speedtest':return aboutSpeedTestPage();case'learn-more':return learnMorePage();case'privacy-policy':return privacyPolicyPage();case'term-of-use':return termOfUsePage();case'feedback':return feedbackPage();}},get=_0x35ec32=>{router(_0x35ec32),routerStack['push'](_0x35ec32),root['innerHTML']=router(_0x35ec32);},pop=()=>{routerStack['pop']();},sliderPageOpen=_0x4662b3=>{const _0x316ad1=document['querySelector']('.settings-page');window['scrollTo'](0x0,0x0),document['body']['style']['overflow']='hidden',isClose?(root['insertAdjacentHTML']('beforeend',router(_0x4662b3)),currentPage=document['querySelector']('.'+_0x4662b3+'-page'),isClose=![],setTimeout(()=>{currentPage['style']['transform']='translateX(0)',_0x316ad1['style']['transform']='translateX(-100%)';},0xa),setTimeout(()=>{document['body']['style']['overflow']='visible';},0x1f4)):(isClose=!![],currentPage['style']['transform']='translateX(100%)',_0x316ad1['style']['transform']='translateX(0)',setTimeout(()=>{currentPage['remove'](),document['body']['style']['overflow']='visible';},0x1f4));},openLearnMore=()=>{window['scrollTo'](0x0,0x0),isClose?(isClose=![],document['body']['style']['overflow']='hidden',root['insertAdjacentHTML']('beforeend',router('learn-more')),currentPage=document['querySelector']('.learn-more-page'),setTimeout(()=>{currentPage['style']['transform']='translateX(0)';},0xa)):(isClose=!![],currentPage['style']['transform']='translateX(100%)',setTimeout(()=>{currentPage['remove'](),document['body']['style']['overflow']='visible';},0x1f4));},meterPageOpen=()=>{const _0x3d065b=document['querySelector']('.meter-page__score-board__score--download'),_0x36a6b0=document['querySelector']('.meter-page__score-board__score--upload');setTimeout(()=>{_0x3d065b['textContent']='12.90',_0x3d065b['style']['border']='2px\x20solid\x20transparent',_0x36a6b0['textContent']='00.00',_0x36a6b0['style']['border']='2px\x20solid\x20transparent';},0x1f40),setTimeout(()=>{_0x36a6b0['textContent']='7.20',_0x36a6b0['style']['border']='2px\x20solid\x20transparent';},0x3e80),openMeter=!![];const _0x1750a7=document['querySelector']('.meter-page');_0x1750a7['style']['display']='block',meterAnimate(![]),setTimeout(()=>{meterAnimate(!![]);},0x2710);},meterPageClose=(_0x46ad51=!![])=>{if(_0x46ad51)openMeter=![];const _0x2c0bd8=document['querySelector']('.meter-page');_0x2c0bd8['style']['display']='none';const _0x6869dd=document['querySelector']('.meter-page__score-board__score--download'),_0x157c34=document['querySelector']('.meter-page__score-board__score--upload');_0x46ad51&&(_0x6869dd['innerHTML']='',_0x157c34['innerHTML']='',_0x6869dd['style']['border']='2px\x20solid\x20#5e5f73',_0x157c34['style']['border']='2px\x20solid\x20#5e5f73');},meterAnimate=_0x431bcb=>{const _0x34402c=document['querySelector']('.meter-page__niddle'),_0x45e0c9=document['querySelector']('.meter-page__fill-color'),_0x4e3805=document['querySelector']('.meter-page__network-speed'),_0x4a91b1=document['querySelector']('.meter-page__speed-unit');let _0x1acbfa=[];if(_0x431bcb){for(let _0xfae598=0x32;_0xfae598>0xa;_0xfae598-=0x5){_0x1acbfa['push'](_0xfae598),_0x1acbfa['push'](_0xfae598-0x8);}_0x4a91b1['innerHTML']='<i\x20class=\x22ri-arrow-up-circle-line\x22\x20style=\x22color:\x20#b967e7;\x22></i>Mbps',_0x45e0c9['style']['backgroundColor']='purple';}else{for(let _0x3d2816=0x32;_0x3d2816>0xa;_0x3d2816-=0x5){_0x1acbfa['push'](_0x3d2816),_0x1acbfa['push'](_0x3d2816-0x8);}[0x0,0x28,0x32,0x5a,0x50,0x28,0x5a]['forEach'](_0x1ea07d=>{_0x1acbfa['unshift'](_0x1ea07d);}),_0x4a91b1['innerHTML']='<i\x20class=\x22ri-arrow-down-circle-line\x22\x20style=\x22color:\x20#69fff3;\x22></i>Mbps',_0x45e0c9['style']['backgroundColor']='#05a7d8';}const _0x16a185=Math['floor'](Math['random']()*0x46);let _0x20c682=Math['floor'](Math['random']()*0x46);const _0x4ce7a7=setInterval(()=>{const _0x1fd5b1=_0x1acbfa['pop']();_0x34402c['style']['transform']='rotate('+(-0x2d+_0x1fd5b1)+'deg)',_0x45e0c9['style']['transform']='rotate(-'+(0x8c-_0x1fd5b1)+'deg)';let _0x5b7ec0=_0x1fd5b1/0x7,_0x39b6f5=0x0;_0x4e3805['textContent']=_0x5b7ec0['toFixed'](0x2);const _0x4bfe84=setInterval(()=>{_0x4e3805['textContent']=(_0x39b6f5+=0.1)['toFixed'](0x2);if(_0x39b6f5>_0x5b7ec0)clearInterval(_0x4bfe84);},0x1);_0x1acbfa['length']==0x0&&clearInterval(_0x4ce7a7);},0x12c);},changeMenuState=_0x199b51=>{const _0x5c71fb=document['querySelector']('.current-menu-selected');_0x5c71fb['classList']['remove']('current-menu-selected'),_0x199b51['classList']['add']('current-menu-selected');const _0x874085=_0x199b51['children'][0x1]['textContent']['toLowerCase']();pop(),get(_0x874085);if(_0x199b51['querySelector']('.bottom-menu__name')['textContent']=='Speed'&&openMeter){const _0x585eaf=document['querySelector']('.meter-page');_0x585eaf['style']['display']='block';}else meterPageClose(![]);},openSupportPage=()=>{const _0x7801e8=document['querySelector']('.support-page');_0x7801e8['style']['display']='block';};window['addEventListener']('DOMContentLoaded',()=>{root=document['getElementById']('root'),get('/'),allMenuItems=document['querySelectorAll']('.bottom-menu__item'),allMenuItems['forEach'](_0x2e8a25=>{_0x2e8a25['addEventListener']('click',_0x56ae58=>{changeMenuState(_0x2e8a25);});});const _0x18433b=document['querySelector']('.support-page'),_0x4e8d1d=document['getElementById']('support-btn-back'),_0x472482=document['querySelectorAll']('.support-page__item'),_0x2f072d=document['querySelectorAll']('.support-page__item\x20i'),_0x121244=document['querySelectorAll']('.support-page__contents');_0x4e8d1d['addEventListener']('click',()=>{_0x18433b['style']['display']='none';}),_0x472482['forEach']((_0x4e204a,_0x517732)=>{_0x4e204a['addEventListener']('click',_0x477ed4=>{_0x121244[_0x517732]['classList']['toggle']('content--show'),_0x2f072d[_0x517732]['classList']['toggle']('ri-arrow-down-s-line'),_0x2f072d[_0x517732]['classList']['toggle']('ri-arrow-up-s-line');});});});const onVpnSwitchChange=()=>{const _0x591958=document['getElementById']('inputSwitch'),_0x28c33d=document['querySelector']('.vpn-page__container');_0x28c33d['innerHTML']='',_0x591958['checked']?(isVpnConnected=!![],_0x28c33d['insertAdjacentHTML']('beforeend','<div\x20class=\x22vpn-page__title\x22\x20style=\x22color:\x20#ff886a;\x22>CONNECTION\x20SECURED</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__desc\x22\x20style=\x22color:\x20#fff;\x20font-weight:\x20200;\x22>0%\x20OF\x202GB\x20USED</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__desc\x22\x20style=\x22color:\x20#9193a8;\x20font-weight:\x20200;\x20font-size:\x201.2em;\x22>Until\x20Nov\x2022</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__powered-By\x22>Powered\x20by\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>IP</span><span\x20style=\x22color:\x20#9193a8;\x22>VANISH</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>')):(isVpnConnected=![],_0x28c33d['insertAdjacentHTML']('beforeend','<div\x20class=\x22vpn-page__title\x22>Free,\x20Secure,\x20Fast\x20Vpn.</div>\x0a\x20\x20<div\x20class=\x22vpn-page__desc\x22>Enable\x20protection\x20now!</div>\x0a\x20\x20<a\x20class=\x22vpn-page__link\x22\x20href=\x22#\x22>Learn\x20more</a>\x0a\x0a\x20\x20<div\x20class=\x22vpn-page__powered-By\x22>Powered\x20by\x0a\x20\x20<span>IP</span><span\x20style=\x22color:\x20#9193a8;\x22>VANISH</span>\x0a\x20\x20</div>')),document['querySelector']('.vpn-page__circle')['classList']['toggle']('vpn-page-switch--active');},unitsToggler=(_0x56166a,_0x1e4dc3)=>{const _0xaa1f4b=_0x1e4dc3?'.settings-page__units-holder__item':'.settings-page__units-holder__scale-item';document['querySelectorAll'](_0xaa1f4b)['forEach'](_0x6ff74f=>{_0x6ff74f['classList']['remove']('settings-page__units-holder--active');}),_0x56166a['classList']['add']('settings-page__units-holder--active');},removePage=_0x4b0c58=>{document['querySelector'](_0x4b0c58)['remove']();},VPNPage=()=>{let _0x9c3a2d='';return isVpnConnected?_0x9c3a2d='<section\x20class=\x22vpn-page\x22>\x0a\x20\x20\x20\x20<div\x20class=\x22vpn-page__grid-container\x22>\x0a\x20\x20\x0a\x20\x20\x20\x20\x20\x20<label\x20class=\x22vpn-page__switch\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22inputSwitch\x22\x20type=\x22checkbox\x22\x20onchange=\x22onVpnSwitchChange(this)\x22\x20checked>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22vpn-page__slider\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22vpn-page__circle\x20vpn-page-switch--active\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-shut-down-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__container\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__title\x22\x20style=\x22color:\x20#ff886a;\x22>CONNECTION\x20SECURED</div>\x0a\x20\x20\x20\x20<div\x20class=\x22vpn-page__desc\x22\x20style=\x22color:\x20#fff;\x20font-weight:\x20200;\x22>0%\x20OF\x202GB\x20USED</div>\x0a\x20\x20\x20\x20<div\x20class=\x22vpn-page__desc\x22\x20style=\x22color:\x20#9193a8;\x20font-weight:\x20200;\x20font-size:\x201.2em;\x22>Until\x20Nov\x2022</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22vpn-page__powered-By\x22>Powered\x20by\x0a\x20\x20\x20\x20\x20\x20<span>IP</span><span\x20style=\x22color:\x20#9193a8;\x22>VANISH</span>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x0a\x20\x20\x20\x20</div>\x0a\x20\x20</section>':_0x9c3a2d='<section\x20class=\x22vpn-page\x22>\x0a\x20\x20\x20\x20<div\x20class=\x22vpn-page__grid-container\x22>\x0a\x20\x20\x0a\x20\x20\x20\x20\x20\x20<label\x20class=\x22vpn-page__switch\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<input\x20id=\x22inputSwitch\x22\x20type=\x22checkbox\x22\x20onchange=\x22onVpnSwitchChange(this)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22vpn-page__slider\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22vpn-page__circle\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-shut-down-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__container\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__title\x22>Free,\x20Secure,\x20Fast\x20Vpn.</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__desc\x22>Enable\x20protection\x20now!</div>\x0a\x20\x20\x20\x20\x20\x20<a\x20class=\x22vpn-page__link\x22\x20href=\x22#\x22>Learn\x20more</a>\x0a\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22vpn-page__powered-By\x22>Powered\x20by\x0a\x20\x20\x20\x20\x20\x20<span>IP</span><span\x20style=\x22color:\x20#9193a8;\x22>VANISH</span>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x0a\x20\x20\x20\x20</div>\x0a\x20\x20</section>',_0x9c3a2d;},resultsPage=()=>{return'<section\x20class=\x22results-page\x22>\x0a\x0a\x0a\x20\x20<div\x20class=\x22results-page__logo\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__top\x22>\x0a\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-delete-bin-7-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-share-box-line\x22></i>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<h1\x20class=\x22results-page__logo-text\x22>\x0a\x20\x20\x20\x20\x20\x20<span\x20class=\x22material-icons\x22>speed</span>\x20SPEEDTEST</h1>\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22results-page__grid-container\x20results-page--grid--1st\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__item-title\x22>Type</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__item-title\x22>Date</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__item-title\x22><i\x20class=\x22ri-arrow-down-circle-line\x22\x20style=\x22color:\x20#69fff3;\x20font-size:\x201.5em;\x22></i>\x0a\x20\x20\x20\x20\x20\x20Mbps\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__item-title\x22>\x0a\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-up-circle-line\x22\x20style=\x22color:\x20#b967e7;\x20font-size:\x201.5em;\x22></i>\x0a\x20\x20\x20\x20\x20\x20Mbps\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22results-page__grid-container\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__lte\x22>\x0a\x20\x20\x20\x20\x20\x20LTE\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__date\x22>\x0a\x20\x20\x20\x20\x20\x20<p>10/17/20</p>\x0a\x20\x20\x20\x20\x20\x20<p>8:13\x20PM</p>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__mbps\x22>\x0a\x20\x20\x20\x20\x20\x2018.7\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__mbps-last\x22>\x0a\x20\x20\x20\x20\x20\x2013.1\x0a\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22results-page__grid-container\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__lte\x22>\x0a\x20\x20\x20\x20\x20\x20LTE\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__date\x22>\x0a\x20\x20\x20\x20\x20\x20<p>10/17/20</p>\x0a\x20\x20\x20\x20\x20\x20<p>8:13\x20PM</p>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__mbps\x22>\x0a\x20\x20\x20\x20\x20\x2018.7\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20class=\x22results-page__mbps-last\x22>\x0a\x20\x20\x20\x20\x20\x2013.1\x0a\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a\x0a</section>';},toolPage=()=>{return'<section\x20class=\x22tools-page\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22tools-page__lists\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__flex\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22https://aakaanksha-speed-test.netlify.app/res/tools_coverage-map.jpg\x22\x20alt=\x22coverage\x20map\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__title\x22>Coverage\x20maps</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__desc\x22>Explore\x20the\x20page\x20of\x20mobile\x20operators\x20in\x20your\x20area\x20and\x20around\x20the\x20world.</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__flex\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22https://aakaanksha-speed-test.netlify.app/res/tools__live.jpg\x22\x20alt=\x22coverage\x20map\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__title\x22>Speedtest\x20Live</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__desc\x22>Uncover\x20the\x20typical\x20speed\x20and\x20performance\x20of\x20apps\x20you\x20use\x20every\x20day.</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22tools-page__item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</section>';},settingPage=()=>{return'\x20\x20<section\x20class=\x22settings-page\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__title\x22>Testing</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__title\x22>Units</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__units\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__item\x20settings-page__units-holder--active\x22\x20onclick=\x22unitsToggler(this,\x20true)\x22>Mbps</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__item\x22\x20onclick=\x22unitsToggler(this,\x20true)\x22>MB/S</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__item\x22\x20onclick=\x22unitsToggler(this,\x20true)\x22>KB/s</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__title\x22>Scale</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__units\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__scale-item\x20settings-page__units-holder--active\x22\x20onclick=\x22unitsToggler(this,\x20false)\x22>100</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__scale-item\x22\x20onclick=\x22unitsToggler(this,\x20false)\x22>500</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__units-holder__scale-item\x22\x20onclick=\x22unitsToggler(this,\x20false)\x22>1000</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__network-scanning\x20settings-page__items\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__network-scanning__wrapper\x20mb1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Network\x20Signal\x20Scanning\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22settings-page__switch\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22settings-page__slider\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20Help\x20us\x20improve\x20our\x20coverage\x20maps\x20by\x20enabling\x20network\x20signal\x20scanning\x20in\x20the\x20background.\x20Coverage\x20data\x20may\x20be\x0a\x20\x20\x20\x20\x20\x20shared\x20with\x20third\x20parties.\x20<a\x20href=\x22#\x22>Learn\x20More</a>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x20settings-page__vpn\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__title\x20mb1\x20mt0\x22>Vpn</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex\x22\x20onclick\x20=\x22openLearnMore(\x27learn-more\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Learn\x20More\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x20settings-page__ad-choice\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__wrapper\x22\x20onclick\x20=\x22sliderPageOpen(\x27ad-choice\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__title\x20mb1\x20mt0\x22>AdChoices</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex__ads-btn\x22>Restore\x20Purchases</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex__ads-btn\x22>Remove\x20Ads</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x20settings-page__vpn\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__title\x20mb1\x20mt0\x22>Help</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex\x22\x20onclick=\x22openSupportPage()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Speedtest\x20Help\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x20settings-page__common\x22\x20onclick\x20=\x22sliderPageOpen(\x27analytics\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Analytics\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x20settings-page__common\x22\x20onclick\x20=\x22sliderPageOpen(\x27about-speedtest\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex\x22\x20id=\x22about-speedtest\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20About\x20Speedtest\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x20settings-page__common\x22\x20onclick\x20=\x22sliderPageOpen(\x27privacy-policy\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Privacy\x20Policy\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x20settings-page__common\x22\x20\x20onclick\x20=\x22sliderPageOpen(\x27term-of-use\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Terms\x20of\x20Use\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22settings-page__items\x20settings-page__common\x22\x20onclick\x20=\x22sliderPageOpen(\x27feedback\x27)\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22settings-page__flex\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Give\x20Us\x20Feedback\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</section>';},homePage=()=>{return'<section\x20class=\x22home\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__animation-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__go-circle\x22\x20onclick\x20=\x20\x22meterPageOpen()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1\x20class=\x22home__go-text\x22>GO</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22home__list\x22>\x0a\x20\x20\x0a\x20\x20<div\x20class=\x22home__item\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__img-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__connection-icon\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-line\x20home__connection-icon__arrow-1\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-line\x20home__connection-icon__arrow-2\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-line\x20home__connection-icon__arrow-3\x22></i>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__text-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22home__text-content--1\x22>Connections</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22home__text-content--2\x22>MULTI\x20\x20&nbsp;\x20<span>SINGLE</span></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__item\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__img-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-global-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__text-content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22home__text-content--1\x20home__text-content--blue\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Jio</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-right-s-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22home__text-content--2\x20\x22\x20style=\x22color:#9294a9\x22>New\x20Delhi</p>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22home__item\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__img-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-wifi-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22home__text-content\x22>\x0a\x20\x20\x20\x20\x20\x20<p\x20class=\x22home__text-content--1\x22>Reliance\x20Jio</p>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20</div>\x0a</section>\x20\x0a';},aboutSpeedTestPage=()=>{return'<section\x20class=\x22about-speedtest-page\x22>\x0a\x0a\x20\x20<div\x20class=\x22about-speedtest-page__top\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22about-speedtest-page__logo\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22about-speedtest-page__back\x22\x20onclick=\x22sliderPageOpen()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-left-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<h1\x20class=\x22about-speedtest-page__logo-text\x22><span\x20class=\x22material-icons\x22>speed</span>\x20SPEEDTEST</h1>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22about-speedtest-page__container\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22about-speedtest-page__text\x20mt2\x22>\x0a\x20\x20\x20\x20\x20\x20Speedtest\x20by\x20Ookla\x20is\x20the\x20definitive\x20way\x20to\x20measure\x20your\x20internet\x20performance.\x20With\x20billions\x20of\x20tests\x20to\x20date,\x0a\x20\x20\x20\x20\x20\x20Speedtest\x20is\x20the\x20dominant\x20global\x20leader\x20in\x20internet\x20performance\x20testing\x20and\x20metrics.\x20<br\x20/><br\x20/>\x0a\x20\x20\x20\x20\x20\x20Speedtest\x27s\x20mission\x20is\x20to\x20help\x20build\x20a\x20better\x20and\x20faster\x20internet.\x20The\x20proven\x20technology\x20behind\x20Speedtest\x20is\x0a\x20\x20\x20\x20\x20\x20purpose-built\x20for\x20accurate\x20and\x20unbiased\x20internet\x20performance\x20testing,\x20which\x20empowers\x20people\x20all\x20over\x20the\x20world\x20to\x0a\x20\x20\x20\x20\x20\x20gauge\x20and\x20troubleshoot\x20the\x20speed\x20of\x20their\x20internet\x20connections.\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<h1>ADCHOICES</h1>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22about-speedtest-page__text\x22>\x0a\x20\x20\x20\x20\x20\x20To\x20opt\x20out\x20of\x20data\x20collection\x20for\x20targeted\x20advertising\x20purposes,\x20you\x20can\x20change\x20the\x20settings\x20for\x20privacy\x20and\x20advertising\x20on\x20your\x20device.\x20In\x20Android,\x20go\x20to\x20Google\x20Settings\x20>\x20Ads.\x20In\x20iOS,\x20go\x20to\x20Settings\x20>\x20Privacy\x20>\x20Advertising.\x20If\x20your\x20device\x20does\x20not\x20offer\x20these\x20settings,\x20Speedtest\x20will\x20not\x20collect\x20data\x20for\x20targeted\x20advertising\x20purposes.\x20\x0a\x0a\x20\x20\x20\x20\x20\x20<br\x20/><br\x20/>\x0a\x0a\x20\x20\x20\x20\x20\x20<p>©\x202006-2020\x20<span\x20style=\x22color:\x20var(--color-sky);\x22>Ookla</span>.\x20LLC.\x20All\x20Rights\x20Reserved</p>\x0a\x0a\x20\x20\x20\x20\x20\x20<br\x20/><br\x20/>\x0a\x0a\x20\x20\x20\x20\x20<div\x20class=\x22about-speedtest-page__version\x22>4.5.20.112106</div>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a</section>';},adChoicesPage=()=>{return'<section\x20class=\x22ad-choice-page\x22>\x0a\x0a\x20\x20<div\x20class=\x22ad-choice-page__top\x22>\x0a\x20\x20\x20\x20<div\x20class=\x22ad-choice-page__logo\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22ad-choice-page__back\x22\x20onclick=\x22sliderPageOpen()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-left-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<h1\x20class=\x22ad-choice-page__logo-text\x22>AdChoices</h1>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22ad-choice-page__container\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22ad-choice-page__title\x22>\x0a\x20\x20\x20\x20\x20\x20Allow\x20interest-based\x20ads\x0a\x0a\x20\x20\x20\x20\x20\x20<label\x20class=\x22ad-choice-page__switch\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22ad-choice-page__slider\x22></span>\x0a\x20\x20\x20\x20\x20\x20</label>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22ad-choice-page__text\x22>\x0a\x20\x20\x20\x20\x20\x20Ziff\x20Davis\x20may\x20collect\x20data\x20about\x20your\x20device\x20and\x20your\x20usage\x20of\x20this\x20mobile\x20application\x20and\x20use\x20it\x20to\x20show\x20you\x0a\x20\x20\x20\x20\x20\x20targeted\x20ads\x20or\x20to\x20enable\x20third\x20parties\x20to\x20show\x20you\x20targeted\x20ads\x20on\x20Ziff\x20Davis\x20websites\x20or\x20on\x20third\x20party\x20sites\x0a\x20\x20\x20\x20\x20\x20(a\x20process\x20known\x20as\x20\x22interest-based\x20advertising\x22\x20or\x20\x22behavioral\x20advertising\x22).<br\x20/><br\x20/>\x0a\x0a\x20\x20\x20\x20\x20\x20For\x20more\x20information\x20about\x20what\x20data\x20Ziff\x20Davis\x20collects\x20on\x20its\x20websites\x20and\x20mobile\x20applications,\x20see\x20the\x20<a\x20href=\x22#\x22>Ziff\x20Davis\x20Privacy\x20Policy</a>\x20<br\x20/><br\x20/>\x0a\x20\x20\x20\x20\x20\x20Ziff\x20Davis\x20supports\x20and\x20adheres\x20to\x20the\x20Digital\x20Advertising\x20Alliance\x20(DAA)\x20Self-Regulatory\x20Program\x20for\x20Online\x0a\x20\x20\x20\x20\x20\x20Behavioral\x20Advertising.\x20For\x20more\x20information\x20about\x20behavioral\x20advertising\x20and\x20the\x20DAA\x20Self-Regulatory\x20Program,\x0a\x20\x20\x20\x20\x20\x20visit:\x20<a\x20href=\x22#\x22>http://www.aboutads.info/consumers</a>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a</section>';},analyticsPage=()=>{return'<section\x20class=\x22analytics-page\x22>\x0a\x0a\x20\x20<div\x20class=\x22analytics-page__top\x22>\x0a\x20\x20\x20\x20<div\x20class=\x22analytics-page__logo\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22analytics-page__back\x22\x20onclick\x20=\x22sliderPageOpen()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-left-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<h1\x20class=\x22analytics-page__logo-text\x22>ANALYTICS\x20</h1>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22analytics-page__container\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22analytics-page__heading\x22>Help\x20us\x20improve\x20Speedtest</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22analytics-page__text\x22>\x0a\x20\x20\x20\x20\x20\x20Ookla\x20may\x20use\x20third-party\x20services\x20to\x20collect\x20data\x20about\x20your\x20device\x20and\x20your\x20usage\x20of\x20Speedtest\x20and\x20use\x20it\x20to\x20improve\x20the\x20application\x20experience\x20and\x20stability.\x20\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22analytics-page__switch-holder\x20mt1\x22>\x0a\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22analytics-page__title\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20Allow\x20Speedtest\x20to\x20collect\x20advanced\x20analytics\x20and\x20crash\x20reports?\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20<label\x20class=\x22analytics-page__switch\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22analytics-page__slider\x22></span>\x0a\x20\x20\x20\x20\x20\x20</label>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a</section>';},learnMorePage=()=>{return'\x20<section\x20class=\x22learn-more-page\x22>\x0a\x20\x20<div\x20class=\x22learn-more-page__btn-close\x22\x20onclick\x20=\x22openLearnMore(\x27learn-more\x27)\x22><i\x20class=\x22ri-close-fill\x22></i></div>\x0a\x20\x20<div\x20class=\x22learn-more-page__slider\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__slider-items\x20learn-more-page__slider-items--1\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__img-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<video\x20poster=\x22https://aakaanksha-speed-test.netlify.app/res/slider-1.png\x22\x20autoplay\x20muted\x20loop>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<source\x20src=\x22https://aakaanksha-speed-test.netlify.app/res/slider_1.mp4\x22\x20type=\x22video/mp4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</video>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1>ENSURE\x20YOUR\x20PRIVACY\x20ONLINE.</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Peace\x20of\x20mind\x20on\x20the\x20internet\x20matters.\x20Speedtest\x20VPN\x20obscures\x20your\x20IP\x20address\x20and\x20encrypts\x20your\x20mobile\x20web\x20and\x20app\x20activity\x20to\x20guarantee\x20your\x20online\x20privacy,\x20giving\x20you\x20complete\x20confidence\x20in\x20your\x20digital\x20security\x20so\x20you\x20can\x20surf\x20the\x20web\x20with\x20ease.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__slider-items\x20learn-more-page__slider-items--2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__img-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<video\x20poster=\x22res/slider-2.png\x22\x20autoplay\x20muted\x20loop>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<source\x20src=\x22https://aakaanksha-speed-test.netlify.app/res/slider_2.mp4\x22\x20type=\x22video/mp4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</video>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1>SECURE\x20ANY\x20INTERNET\x20CONNECTION.</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Whether\x20on\x20a\x20private\x20or\x20open\x20public\x20internet\x20connection,\x20Speedtest\x20VPN\x20protects\x20you\x20from\x20potential\x20privacy\x20breaches.\x20That\x20means\x20you\x20can\x20browse\x20wherever\x20you\x20are,\x20from\x20home\x20to\x20the\x20local\x20coffee\x20shop,\x20knowing\x20sensitive\x20personal\x20information\x20is\x20safe.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__slider-items\x20learn-more-page__slider-items--3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__img-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<video\x20poster=\x22res/slider-3.png\x22\x20autoplay\x20muted\x20loop>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<source\x20src=\x22https://aakaanksha-speed-test.netlify.app/res/slider_3.mp4\x22\x20type=\x22video/mp4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</video>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22learn-more-page__content\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1>ACCESS\x20THE\x20CONTENT\x20YOU\x20WANT.</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>No\x20matter\x20where\x20you\x20are\x20in\x20the\x20world,\x20Speedtest\x20VPN\x20allows\x20you\x20to\x20use\x20the\x20Internet\x20without\x20restrictions\x20based\x20on\x20geographic\x20location.</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x0a\x20\x20</div>\x0a\x20\x20<div\x20class=\x22learn-more-page__pagination\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div></div>\x0a\x20\x20</div>\x0a</section>';},privacyPolicyPage=()=>{return'<section\x20class=\x22privacy-policy-page\x22>\x0a\x0a\x20\x20<div\x20class=\x22privacy-policy-page__top\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__logo\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__back\x22\x20onclick=\x22sliderPageOpen()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-left-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<h1\x20class=\x22privacy-policy-page__logo-text\x22><span\x20class=\x22material-icons\x22>speed</span>\x20SPEEDTEST</h1>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22privacy-policy-page__top-container\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22top-container__heading\x22>OOKLA\x20PRIVACY\x20POLICY</div>\x0a\x0a\x20\x20\x20\x20<img\x20src=\x22https://aakaanksha-speed-test.netlify.app/res/privacy-page__trust.jpg\x22\x20alt=\x22trust\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22top-container__text\x22>Effective\x20September\x201,\x202020</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22top-container__text\x22>If\x20you\x20have\x20any\x20questions\x20related\x20to\x20Data\x20Subject\x20Access\x20Rights\x20under\x20GDPR\x20or\x0a\x20\x20\x20\x20\x20\x20CCPA,\x20you\x20can\x20contact\x20us\x20through\x20our\x20<span>DSAR\x20Portal</span>.</div>\x0a\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22privacy-policy-page__links-holder\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>1.</span>\x0a\x20\x20\x20\x20\x20\x20Privacy\x20Policy\x20Overview\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>2.</span>\x0a\x20\x20\x20\x20\x20\x20What\x20Categories\x20of\x20Information\x20We\x20May\x20Process\x20\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>3.</span>\x0a\x20\x20\x20\x20\x20\x20Sensitive\x20Personal\x20Information\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>4.</span>\x0a\x20\x20\x20\x20\x20\x20How\x20We\x20Collect\x20or\x20Create\x20Information\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>5.</span>\x0a\x20\x20\x20\x20\x20\x20Purposes\x20for\x20Which\x20We\x20May\x20Process\x20Your\x20Information\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>6.</span>\x0a\x20\x20\x20\x20\x20\x20Direct\x20Marketing\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>7.</span>\x0a\x20\x20\x20\x20\x20\x20Cookies,\x20Similar\x20Technologies\x20and\x20Online\x20Behavioral\x20Advertising\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>8.</span>\x0a\x20\x20\x20\x20\x20\x20What\x20is\x20the\x20Lawful\x20Basis\x20for\x20Processing\x20Personal\x20Information\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>9.</span>\x0a\x20\x20\x20\x20\x20\x20What\x20Information\x20We\x20Disclose\x20to\x20Third\x20Parties\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22privacy-policy-page__link\x22>\x0a\x20\x20\x20\x20\x20\x20<span>10.</span>\x0a\x20\x20\x20\x20\x20\x20International\x20Transfers\x20of\x20Information\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x0a\x20\x20</div>\x0a\x0a\x0a</section>';},termOfUsePage=()=>{return'\x20\x20<section\x20class=\x22term-of-use-page\x22>\x0a\x0a\x20\x20<div\x20class=\x22term-of-use-page__top\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22term-of-use-page__logo\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22term-of-use-page__back\x22\x20onclick=\x22sliderPageOpen()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-arrow-left-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<h1\x20class=\x22term-of-use-page__logo-text\x22><span\x20class=\x22material-icons\x22>speed</span>\x20SPEEDTEST</h1>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22term-of-use-page__container\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22term-of-use-page__heading\x22>OOKLA\x20TERMS\x20OF\x20USE</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22term-of-use-page__text\x22>Effective\x20May\x2014,\x202019</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22term-of-use-page__box\x22>\x0a\x20\x20\x20\x20\x20\x20Note:\x20The\x20Ookla\x20Terms\x20of\x20Use\x20have\x20been\x20updated.\x20Please\x20review\x20the\x20updated\x20Terms\x20of\x20Use\x20carefully\x20before\x20using\x0a\x20\x20\x20\x20\x20\x20the\x20Ookla\x20Services.\x20By\x20using\x20any\x20of\x20the\x20Ookla\x20Services,\x20you\x20consent\x20to\x20the\x20terms\x20of\x20the\x20updated\x20Terms\x20of\x20Use.\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22term-of-use-page__text\x22>\x0a\x20\x20\x20\x20\x20\x20PLEASE\x20READ\x20THESE\x20TERMS\x20OF\x20USE\x20(\x22<b>TERMS</b>\x22)\x20CAREFULLY\x20BECAUSE\x20THEY\x20DESCRIBE\x20YOUR\x20RIGHTS\x20AND\x20RESPONSIBILITIES\x0a\x20\x20\x20\x20\x20\x20AND,\x0a\x20\x20\x20\x20\x20\x20TOGETHER\x20WITH\x20ALL\x20THE\x20OTHER\x20TERMS\x20AND\x20CONDITIONS\x20REFERRED\x20TO\x20BELOW,\x20FORM\x20A\x20LEGALLY\x20BINDING\x20AGREEMENT\x20BETWEEN\x20YOU\x0a\x20\x20\x20\x20\x20\x20AND\x20US\x20REGARDING\x20YOUR\x20USE\x20OF\x20OUR\x20WEBSITE(S)\x20AND\x20OTHER\x20SERVICES.<br\x20/><br\x20/>\x0a\x20\x20\x20\x20\x20\x20<b>THESE\x20TERMS\x20CONTAIN\x20A\x20BINDING\x20ARBITRATION\x20CLAUSE\x20AND\x20A\x20CLASS\x20ACTION\x20WAIVER.</b><br\x20/><br\x20/>\x0a\x0a\x20\x20\x20\x20\x20\x20<span>SECTION\x2016</span>\x20CONTAINS\x20AN\x20IMPORTANT\x20NOTE\x20TO\x20NEW\x20JERSEY\x20CONSUMERS.<br\x20/><br\x20/>\x0a\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20IF\x20FOR\x20ANY\x20REASON,\x20YOU\x20ARE\x20UNABLE\x20OR\x20UNWILLING\x20TO\x20AGREE\x20TO\x20ALL\x20OUR\x20TERMS\x20OF\x20USE,\x20PLEASE\x20IMMEDIATELY\x20STOP\x20USING\x0a\x20\x20\x20\x20\x20\x20OR\x20ATTEMPTING\x20TO\x20USE\x20OUR\x20WEBSITE\x20AND\x20OTHER\x20SERVICES,\x20BECAUSE\x20IF\x20YOU\x20CONTINUE,\x20YOU\x20WILL\x20BE\x20AGREEING\x20TO\x20EVERYTHING\x0a\x20\x20\x20\x20\x20\x20IN\x20OUR\x20TERMS\x20OF\x20USE.\x0a\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a</section>';},feedbackPage=()=>{return'<section\x20class=\x22feedback-page\x22>\x0a\x0a\x20\x20<div\x20class=\x22feedback-page__top\x22>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22feedback-page__logo\x22>\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22feedback-page__back\x22\x20onclick=\x22sliderPageOpen()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22ri-close-line\x22></i>\x0a\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<div\x20class=\x22feedback-page__ok\x22>OK</div>\x0a\x0a\x20\x20\x20\x20\x20\x20<h1\x20class=\x22feedback-page__logo-text\x22><span\x20class=\x22material-icons\x22>speed</span>\x20SPEEDTEST</h1>\x0a\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20</div>\x0a\x0a\x20\x20<div\x20class=\x22feedback-page__text-area\x22>\x0a\x20\x20\x20\x20<textarea\x20rows=\x2212\x22placeholder=\x22Give\x20Us\x20Feedback\x22></textarea>\x0a\x20\x20</div>\x0a\x0a</section>';};alert('\x0a🥇\x20Yeaa\x20Winner\x20of\x20Codewar\x20Contest\x20s-1\x20💕💕\x0a\x0a\x0a⚡\x20No\x20libraries\x20or\x20framework\x20used\x20🙅♀️\x0a⚡\x20Everything\x20is\x20made\x20manually\x20😌\x0a\x0a⚡\x20For\x20Codewar\x20Final\x20Round\x20😍💕\x0a⚡\x20Everything\x20is\x20functional\x20✅');
+
+
+    </script>
+</head>
+
+<body>
+
+    <div id="root">
+    </div>
+
+
+    <!-- Top Logo -->
+    <div class="logo">
+        <h1 class="logo__name"><span class="material-icons">speed</span> SPEEDTEST</h1>
+    </div>
+    <!-- End of Top Logo -->
+    <!-- Bottom Menu -->
+    <section class="bottom-menu">
+        <div class="bottom-menu__item current-menu-selected">
+            <div class="bottom-menu__icon">
+                <span class="material-icons">speed</span>
+            </div>
+            <div class="bottom-menu__name">Speed</div>
+        </div>
+
+        <div class="bottom-menu__item">
+            <div class="bottom-menu__icon">
+                <i class="ri-lock-unlock-line"></i>
+            </div>
+            <div class="bottom-menu__name">Vpn</div>
+        </div>
+
+        <div class="bottom-menu__item">
+            <div class="bottom-menu__icon">
+                <i class="ri-checkbox-circle-line"></i>
+            </div>
+            <div class="bottom-menu__name">Results</div>
+        </div>
+
+        <div class="bottom-menu__item">
+            <div class="bottom-menu__icon">
+
+                <?xml version="1.0" encoding="UTF-8" ?>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20pt" height="20pt"
+                     viewBox="0 0 20 20" version="1.1">
+                    <g id="surface1">
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 12.359375 14.386719 C 12.359375 14.535156 12.242188 14.652344 12.097656 14.652344 C 11.953125 14.652344 11.832031 14.535156 11.832031 14.386719 C 11.832031 14.242188 11.953125 14.121094 12.097656 14.121094 C 12.242188 14.121094 12.359375 14.242188 12.359375 14.386719 Z M 12.359375 14.386719 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 14.210938 9.890625 C 14.210938 10.035156 14.09375 10.15625 13.949219 10.15625 C 13.800781 10.15625 13.683594 10.035156 13.683594 9.890625 C 13.683594 9.746094 13.800781 9.625 13.949219 9.625 C 14.09375 9.625 14.210938 9.746094 14.210938 9.890625 Z M 14.210938 9.890625 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 10.773438 13.328125 C 10.773438 13.476562 10.65625 13.59375 10.507812 13.59375 C 10.363281 13.59375 10.246094 13.476562 10.246094 13.328125 C 10.246094 13.183594 10.363281 13.066406 10.507812 13.066406 C 10.65625 13.066406 10.773438 13.183594 10.773438 13.328125 Z M 10.773438 13.328125 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 7.863281 5.128906 C 7.863281 5.273438 7.746094 5.394531 7.597656 5.394531 C 7.453125 5.394531 7.335938 5.273438 7.335938 5.128906 C 7.335938 4.984375 7.453125 4.863281 7.597656 4.863281 C 7.746094 4.863281 7.863281 4.984375 7.863281 5.128906 Z M 7.863281 5.128906 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 7.597656 2.484375 C 7.597656 2.628906 7.480469 2.75 7.335938 2.75 C 7.1875 2.75 7.070312 2.628906 7.070312 2.484375 C 7.070312 2.335938 7.1875 2.21875 7.335938 2.21875 C 7.480469 2.21875 7.597656 2.335938 7.597656 2.484375 Z M 7.597656 2.484375 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 15.457031 11.773438 C 15.511719 11.824219 15.578125 11.851562 15.644531 11.851562 C 15.714844 11.851562 15.78125 11.824219 15.832031 11.773438 C 15.933594 11.671875 15.933594 11.503906 15.832031 11.402344 L 15.644531 11.214844 L 15.832031 11.027344 C 15.933594 10.921875 15.933594 10.757812 15.832031 10.652344 C 15.730469 10.546875 15.5625 10.546875 15.457031 10.652344 L 15.273438 10.839844 L 15.085938 10.652344 C 14.980469 10.546875 14.8125 10.546875 14.710938 10.652344 C 14.605469 10.757812 14.605469 10.921875 14.710938 11.027344 L 14.894531 11.214844 L 14.710938 11.402344 C 14.605469 11.503906 14.605469 11.671875 14.710938 11.773438 C 14.761719 11.824219 14.828125 11.851562 14.894531 11.851562 C 14.964844 11.851562 15.03125 11.824219 15.085938 11.773438 L 15.273438 11.585938 Z M 15.457031 11.773438 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 8.097656 8.070312 C 8.148438 8.121094 8.214844 8.148438 8.285156 8.148438 C 8.351562 8.148438 8.417969 8.121094 8.46875 8.070312 L 8.65625 7.882812 L 8.84375 8.070312 C 8.894531 8.121094 8.964844 8.148438 9.03125 8.148438 C 9.097656 8.148438 9.167969 8.121094 9.21875 8.070312 C 9.324219 7.96875 9.324219 7.800781 9.21875 7.695312 L 9.03125 7.511719 L 9.21875 7.324219 C 9.324219 7.21875 9.324219 7.050781 9.21875 6.949219 C 9.113281 6.84375 8.945312 6.84375 8.84375 6.949219 L 8.65625 7.136719 L 8.46875 6.949219 C 8.367188 6.84375 8.199219 6.84375 8.097656 6.949219 C 7.992188 7.050781 7.992188 7.21875 8.097656 7.324219 L 8.285156 7.511719 L 8.097656 7.695312 C 7.992188 7.800781 7.992188 7.96875 8.097656 8.070312 Z M 8.097656 8.070312 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 14.664062 4.367188 C 14.714844 4.417969 14.785156 4.445312 14.851562 4.445312 C 14.917969 4.445312 14.988281 4.417969 15.039062 4.367188 C 15.140625 4.265625 15.140625 4.097656 15.039062 3.992188 L 14.851562 3.804688 L 15.039062 3.621094 C 15.140625 3.515625 15.140625 3.347656 15.039062 3.246094 C 14.933594 3.140625 14.769531 3.140625 14.664062 3.246094 L 14.476562 3.433594 L 14.289062 3.246094 C 14.1875 3.140625 14.019531 3.140625 13.917969 3.246094 C 13.8125 3.347656 13.8125 3.515625 13.917969 3.621094 L 14.101562 3.804688 L 13.917969 3.992188 C 13.8125 4.097656 13.8125 4.265625 13.917969 4.367188 C 13.96875 4.417969 14.035156 4.445312 14.101562 4.445312 C 14.171875 4.445312 14.238281 4.417969 14.289062 4.367188 L 14.476562 4.179688 Z M 14.664062 4.367188 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 10.246094 4.070312 C 10.390625 4.070312 10.507812 3.953125 10.507812 3.804688 L 10.507812 3.011719 C 10.507812 2.867188 10.390625 2.75 10.246094 2.75 C 10.097656 2.75 9.980469 2.867188 9.980469 3.011719 L 9.980469 3.804688 C 9.980469 3.953125 10.097656 4.070312 10.246094 4.070312 Z M 10.246094 4.070312 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 10.246094 4.597656 C 10.097656 4.597656 9.980469 4.71875 9.980469 4.863281 L 9.980469 5.65625 C 9.980469 5.804688 10.097656 5.921875 10.246094 5.921875 C 10.390625 5.921875 10.507812 5.804688 10.507812 5.65625 L 10.507812 4.863281 C 10.507812 4.71875 10.390625 4.597656 10.246094 4.597656 Z M 10.246094 4.597656 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 8.921875 4.597656 L 9.714844 4.597656 C 9.863281 4.597656 9.980469 4.480469 9.980469 4.335938 C 9.980469 4.191406 9.863281 4.070312 9.714844 4.070312 L 8.921875 4.070312 C 8.773438 4.070312 8.65625 4.191406 8.65625 4.335938 C 8.65625 4.480469 8.773438 4.597656 8.921875 4.597656 Z M 8.921875 4.597656 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 10.773438 4.597656 L 11.566406 4.597656 C 11.714844 4.597656 11.832031 4.480469 11.832031 4.335938 C 11.832031 4.191406 11.714844 4.070312 11.566406 4.070312 L 10.773438 4.070312 C 10.628906 4.070312 10.507812 4.191406 10.507812 4.335938 C 10.507812 4.480469 10.628906 4.597656 10.773438 4.597656 Z M 10.773438 4.597656 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 5.21875 8.566406 C 5.21875 9.007812 5.574219 9.359375 6.011719 9.359375 C 6.449219 9.359375 6.804688 9.007812 6.804688 8.566406 C 6.804688 8.128906 6.449219 7.773438 6.011719 7.773438 C 5.574219 7.773438 5.21875 8.128906 5.21875 8.566406 Z M 6.277344 8.566406 C 6.277344 8.714844 6.160156 8.832031 6.011719 8.832031 C 5.867188 8.832031 5.746094 8.714844 5.746094 8.566406 C 5.746094 8.421875 5.867188 8.304688 6.011719 8.304688 C 6.160156 8.304688 6.277344 8.421875 6.277344 8.566406 Z M 6.277344 8.566406 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 13.152344 11.214844 C 12.71875 11.214844 12.359375 11.570312 12.359375 12.007812 C 12.359375 12.445312 12.71875 12.800781 13.152344 12.800781 C 13.59375 12.800781 13.949219 12.445312 13.949219 12.007812 C 13.949219 11.570312 13.59375 11.214844 13.152344 11.214844 Z M 13.152344 12.273438 C 13.007812 12.273438 12.890625 12.152344 12.890625 12.007812 C 12.890625 11.863281 13.007812 11.742188 13.152344 11.742188 C 13.300781 11.742188 13.417969 11.863281 13.417969 12.007812 C 13.417969 12.152344 13.300781 12.273438 13.152344 12.273438 Z M 13.152344 12.273438 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 16.066406 13.59375 C 15.625 13.59375 15.273438 13.949219 15.273438 14.386719 C 15.273438 14.824219 15.625 15.183594 16.066406 15.183594 C 16.503906 15.183594 16.859375 14.824219 16.859375 14.386719 C 16.859375 13.949219 16.503906 13.59375 16.066406 13.59375 Z M 16.066406 14.652344 C 15.917969 14.652344 15.800781 14.535156 15.800781 14.386719 C 15.800781 14.242188 15.917969 14.121094 16.066406 14.121094 C 16.210938 14.121094 16.328125 14.242188 16.328125 14.386719 C 16.328125 14.535156 16.210938 14.652344 16.066406 14.652344 Z M 16.066406 14.652344 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 5.484375 5.65625 C 5.917969 5.65625 6.277344 5.300781 6.277344 4.863281 C 6.277344 4.425781 5.917969 4.070312 5.484375 4.070312 C 5.046875 4.070312 4.6875 4.425781 4.6875 4.863281 C 4.6875 5.300781 5.046875 5.65625 5.484375 5.65625 Z M 5.484375 4.597656 C 5.628906 4.597656 5.746094 4.71875 5.746094 4.863281 C 5.746094 5.011719 5.628906 5.128906 5.484375 5.128906 C 5.335938 5.128906 5.21875 5.011719 5.21875 4.863281 C 5.21875 4.71875 5.335938 4.597656 5.484375 4.597656 Z M 5.484375 4.597656 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 13.910156 7.421875 C 13.910156 7.265625 13.847656 7.121094 13.738281 7.007812 L 13.257812 6.527344 C 13.035156 6.308594 12.648438 6.308594 12.429688 6.527344 L 10.417969 8.539062 L 2.683594 15.769531 C 2.53125 15.914062 2.449219 16.117188 2.453125 16.324219 C 2.460938 16.535156 2.558594 16.734375 2.71875 16.867188 L 3.441406 17.457031 C 3.578125 17.570312 3.742188 17.625 3.90625 17.625 C 4.097656 17.625 4.289062 17.546875 4.429688 17.402344 L 11.722656 9.855469 L 13.738281 7.839844 C 13.851562 7.726562 13.910156 7.578125 13.910156 7.421875 Z M 4.050781 17.035156 C 3.976562 17.109375 3.859375 17.117188 3.777344 17.050781 L 3.058594 16.457031 C 2.996094 16.40625 2.984375 16.34375 2.980469 16.308594 C 2.980469 16.273438 2.988281 16.210938 3.046875 16.15625 L 10.59375 9.101562 L 11.164062 9.671875 Z M 13.363281 7.464844 L 11.535156 9.292969 L 10.972656 8.734375 L 12.804688 6.902344 C 12.816406 6.890625 12.828125 6.886719 12.84375 6.886719 C 12.859375 6.886719 12.875 6.890625 12.882812 6.902344 L 13.363281 7.382812 C 13.378906 7.398438 13.378906 7.414062 13.378906 7.421875 C 13.378906 7.433594 13.378906 7.449219 13.363281 7.464844 Z M 13.363281 7.464844 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 16.066406 7.246094 C 16.210938 7.246094 16.328125 7.128906 16.328125 6.980469 L 16.328125 6.453125 C 16.328125 6.304688 16.210938 6.1875 16.066406 6.1875 C 15.917969 6.1875 15.800781 6.304688 15.800781 6.453125 L 15.800781 6.980469 C 15.800781 7.128906 15.917969 7.246094 16.066406 7.246094 Z M 16.066406 7.246094 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 16.066406 7.773438 C 15.917969 7.773438 15.800781 7.894531 15.800781 8.039062 L 15.800781 8.566406 C 15.800781 8.714844 15.917969 8.832031 16.066406 8.832031 C 16.210938 8.832031 16.328125 8.714844 16.328125 8.566406 L 16.328125 8.039062 C 16.328125 7.894531 16.210938 7.773438 16.066406 7.773438 Z M 16.066406 7.773438 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 14.742188 7.511719 C 14.742188 7.65625 14.859375 7.773438 15.007812 7.773438 L 15.535156 7.773438 C 15.683594 7.773438 15.800781 7.65625 15.800781 7.511719 C 15.800781 7.363281 15.683594 7.246094 15.535156 7.246094 L 15.007812 7.246094 C 14.859375 7.246094 14.742188 7.363281 14.742188 7.511719 Z M 14.742188 7.511719 " />
+                        <path style=" stroke:none;fill-rule:nonzero;fill-opacity:1;"
+                              d="M 17.121094 7.246094 L 16.59375 7.246094 C 16.449219 7.246094 16.328125 7.363281 16.328125 7.511719 C 16.328125 7.65625 16.449219 7.773438 16.59375 7.773438 L 17.121094 7.773438 C 17.269531 7.773438 17.386719 7.65625 17.386719 7.511719 C 17.386719 7.363281 17.269531 7.246094 17.121094 7.246094 Z M 17.121094 7.246094 " />
+                    </g>
+                </svg>
+
+
+            </div>
+            <div class="bottom-menu__name" style="margin-top: -0.1rem;">Tools</div>
+        </div>
+
+        <div class="bottom-menu__item">
+            <div class="bottom-menu__icon">
+                <i class="ri-settings-3-line"></i>
+            </div>
+            <div class="bottom-menu__name">Settings</div>
+    </section>
+    <section class="meter-page">
+
+        <div class="meter-page__top">
+
+            <div class="meter-page__logo">
+                <span class="material-icons">speed</span> SPEEDTEST
+            </div>
+
+            <i class="ri-close-line meter-page__close" onclick="meterPageClose()"></i>
+
+            <div class="meter-page__score-board">
+
+                <div class="meter-page__score-board__item">
+                    <div class="meter-page__score-board__title">
+                        <i class="ri-arrow-down-circle-line" style="color: #69fff3;"></i>
+                        DOWNLOAD Mbps
+                    </div>
+
+                    <div class="meter-page__score-board__score meter-page__score-board__score--download"></div>
+
+                </div>
+
+                <div class="meter-page__score-board__item">
+                    <div class="meter-page__score-board__title">
+                        <i class="ri-arrow-up-circle-line" style="color: #b967e7;"></i>
+                        UPLOAD Mbps
+                    </div>
+
+                    <div class="meter-page__score-board__score meter-page__score-board__score--upload"></div>
+
+                </div>
+
+            </div>
+
+            <div class="meter-page__status">
+
+                <div class="meter-page__status__item"><i class="ri-exchange-line"></i> Ping 39ms</div>
+                <div class="meter-page__status__item"><i class="ri-exchange-funds-line"></i> Jitter 5ms</div>
+                <div class="meter-page__status__item meter-page__status__last">
+                    <i class="ri-indeterminate-circle-line"></i> Loss
+                    <div class="meter-page__status__dash"></div> %
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="meter-page__meter-container">
+
+
+            <div class="meter-page__circle">
+                <div class="meter-page__fill-color"></div>
+                <div class="meter-page__circle-helper"></div>
+
+                <div class="meter-page__circle-2">
+                    <div class="meter-page__numbers meter-page__0">0</div>
+                    <div class="meter-page__numbers meter-page__5">5</div>
+                    <div class="meter-page__numbers meter-page__10">10</div>
+                    <div class="meter-page__numbers meter-page__15">15</div>
+                    <div class="meter-page__numbers meter-page__20">20</div>
+                    <div class="meter-page__numbers meter-page__30">30</div>
+                    <div class="meter-page__numbers meter-page__50">50</div>
+                    <div class="meter-page__numbers meter-page__75">75</div>
+                    <div class="meter-page__numbers meter-page__100">100</div>
+                </div>
+
+                <div class="meter-page__hider"></div>
+            </div>
+
+            <div class="meter-page__niddle"></div>
+            <div class="meter-page__speed">
+                <div class="meter-page__network-speed">00.00</div>
+                <div class="meter-page__speed-unit">
+                    <i class="ri-arrow-down-circle-line" style="color: #69fff3;"></i>Mbps
+                </div>
+            </div>
+        </div>
+
+
+        <div class="home__list">
+
+            <div class="home__item">
+                <div class="home__img-wrapper">
+                    <i class="ri-global-line"></i>
+                </div>
+                <div class="home__text-content">
+                    <p class="home__text-content--1 home__text-content--blue">
+                        <span>Jio</span>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </p>
+                    <p class="home__text-content--2 " style="color:#9294a9">New Delhi</p>
+                </div>
+            </div>
+
+            <div class="home__item">
+                <div class="home__img-wrapper">
+                    <i class="ri-wifi-line"></i>
+                </div>
+                <div class="home__text-content">
+                    <p class="home__text-content--1">Reliance Jio</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="support-page">
+        <div class="support-page__top">
+            <div>
+                <i class="ri-arrow-left-line" id="support-btn-back"></i>
+                <h1>Support</h1>
+            </div>
+            <i class="ri-search-line"></i>
+        </div>
+
+        <div class="support-page__list">
+
+            <div class="support-page__items">
+                <div class="support-page__item">
+                    <h1>The Basics</h1>
+                    <i class="ri-arrow-up-s-line"></i>
+                </div>
+                <div class="support-page__contents">
+                    <h1>Speedtest Basics</h1>
+                    <p>What is Speedtest?</p>
+                    <p>how else can my organization or i use speedtest?</p>
+                </div>
+            </div>
+
+            <div class="support-page__items">
+                <div class="support-page__item">
+                    <h1>Mobile</h1>
+                    <i class="ri-arrow-up-s-line"></i>
+                </div>
+                <div class="support-page__contents">
+                    <h1>Speedtest Basics</h1>
+                    <p>What is Speedtest?</p>
+                    <p>how else can my organization or i use speedtest?</p>
+                </div>
+            </div>
+
+            <div class="support-page__items">
+                <div class="support-page__item">
+                    <h1>Mobile</h1>
+                    <i class="ri-arrow-up-s-line"></i>
+                </div>
+                <div class="support-page__contents">
+                    <h1>Speedtest Basics</h1>
+                    <p>What is Speedtest?</p>
+                    <p>how else can my organization or i use speedtest?</p>
+                </div>
+            </div>
+
+            <div class="support-page__items">
+                <div class="support-page__item">
+                    <h1>Mobile</h1>
+                    <i class="ri-arrow-up-s-line"></i>
+                </div>
+                <div class="support-page__contents" style="border:none;">
+                    <h1>Speedtest Basics</h1>
+                    <p>What is Speedtest?</p>
+                    <p>how else can my organization or i use speedtest?</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="page-1">
+        <div class="page-1__item">
+
+            <div class="logo">
+                <h1 class="logo__name">
+                    <span class="material-icons">speed</span>
+                    SPEEDTEST
+                </h1>
+            </div>
+
+            <h1 class="page-1__sup">Welcome to Speedtest</h1>
+            <p class="page-1__sub">Let's review your privacy options</p>
+        </div>
+        <div class="page-1__item page-1__img">
+            <img src="https://aakaanksha-speed-test.netlify.app/res/01.jpg" alt="lock" />
+        </div>
+        <div class="page-1__item">
+            <button class="btn" onclick="removePage('.page-1')">Next</button>
+        </div>
+    </section>
+    <section class="page-2">
+        <div class="page-2__top">
+            <div class="logo">
+                <h1 class="logo__name">
+                    <span class="material-icons">speed</span>
+                    SPEEDTEST
+                </h1>
+            </div>
+            <h1 class="page-2__sup">Permissions</h1>
+            <p class="page-2__sub">
+                Speedtest needs certain permissions to function correctly
+            </p>
+        </div>
+        <div>
+            <img class="page-2__img" src="https://aakaanksha-speed-test.netlify.app/res/hand.jpg" alt="hand" />
+        </div>
+        <div class="page-2__content">
+            <div class="page-2__item">
+                <p class="page-2__title"><i class="ri-map-pin-2-line"></i>Location</p>
+                <div class="page-2__desc">
+                    We use your location to find nearby servers to test to.This gives
+                    you the most accurate results
+                </div>
+            </div>
+            <div class="page-2__item">
+                <p class="page-2__title"><i class="ri-tablet-line"></i>Phone</p>
+                <div class="page-2__desc">
+                    We use phone permissions to identify the mobile operator used for
+                    testing. We will not make or manage phone calls
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <button class="btn" onclick="removePage('.page-2')">Continue</button>
+        </div>
+    </section>
+    <section class="network-scanning-page">
+
+        <div class="logo">
+            <h1 class="logo__name">
+                <span class="material-icons">speed</span>
+                SPEEDTEST
+            </h1>
+        </div>
+
+        <div class="network-scanning-page__container">
+
+            <div class="network-scanning-page__title">
+                Enable Network Signal Scanning
+            </div>
+
+            <img src="https://aakaanksha-speed-test.netlify.app/res/page3__tower.jpg" alt="network signal">
+
+            <div class="network-scanning-page__text">
+                Speedtest would like to periodically check mobile coverage, quality, and location data to provide you with
+                operator coverage maps.<br /><br />
+            </div>
+
+            <div class="network-scanning-page__text" style="color: #5e5f71;">
+                Anonymized coverage data may be shared with operators to help them improve their networks.<br />
+                <a href="#">Learn More</a>
+            </div>
+
+            <div class="network-scanning-page__btn-holder">
+                <div class="network-scanning-page__btn-deny" onclick="removePage('.network-scanning-page')">Do not allow</div>
+                <div class="network-scanning-page__btn" onclick="removePage('.network-scanning-page')">Allow</div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+
+

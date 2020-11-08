@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        html{
+            background:#b6ff00;
+        }
+        body{
+            height:600px;
+            width:500px;
+            background:#0026ff;
+            text-align:center;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size:30px;
+            margin:auto;
+        }
+        #header{
+            height:100px;
+            width:100%;
+            background:#ff0000;
+            font-family:'Franklin Gothic';
+            text-align:center;
+            font-size:40px;
+        }#container{
+             height:400px;
+             width:100%;
+             text-align:center;
+             font-size:35px;
+             color:black;
+         }
+        #footer{
+            height:100px;
+            width:100%;
+            background:#ff0000;
+            font-family:'Franklin Gothic';
+            text-align:center;
+            font-size:40px;
+            }
+        button{
+            border-style:dotted;
+            border-radius:18px;
+            padding:12px 15px;
+            background:#ff006e;
+            color:black;
+        }
+    </style>
+    <script>
+        function verify() {
+            var no;
+            no = Number(document.getElementById("age").value);
+            if(no<18)
+            {
+                alert("you are under18");
+            }
+            else
+            {
+                alert("you are an adult");
+            }
+        }
+    </script>
+    </head>
+<body>
+    <div id="header">ADULT VERIFICATION</div>
+    <div id="container">
+        <br />
+        <br />
+        <br />
+        enter you age:<input id="age" /><br />
+        <br />
+        <br />
+        <br />
+        <button onclick="verify()">click me</button>
+    </div>
+    <div id="footer">MADE SIMPLE</div>
+</body>
+</html>

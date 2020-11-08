@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            text-decoration:none;
+            list-style:none;
+            font-family:'montserrat',sans-serif;
+        }
+        body{
+            height:500px;
+            width:600px;
+            align-items:center;
+            margin:3px auto;
+        }
+        #header{
+            align-items:center;
+            justify-content:center;
+            width:100%;
+            height:100px;
+        }
+        #lefttbox{
+            float:left;
+        }
+        #lefttbox nav{
+            position:fixed;
+            width:320px;
+            height:100%;
+            left:-32px;
+            overflow:hidden;
+            background:#ff6a00;
+            transition:.4s;
+        }
+        #lefttbox nav .brand{
+            position:absolute;
+            color:#2b4c8c;
+            font-size:28px;
+            font-weight:600;
+            margin: 32px 40px;
+        }
+#lefttbox nav label{
+    position:absolute;
+    right:50px;
+    top:35px;
+    padding:5px 8px;
+    color:#2b4c8c;
+    font-size:16px;
+    border:2px solid;
+    border-radius:50%;
+    cursor:pointer;
+    transition:.4s;
+}
+#lefttbox nav label:hover{
+    background:#2B4C8C;
+    color:#fff;
+}
+#lefttbox nav ul{
+    position:absolute;
+    top:100px;
+}
+#lefttbox nav ul li{
+    padding:25px 40px;
+    color:#2B4C8C;
+    width:320px;
+    margin-left:-50px;
+    opacity:0;
+    cursor:pointer;
+    transition:.4s;
+}
+#lefttbox nav ul li:hover{
+    animation:hover .6s;
+}
+@keyframes hover{
+    50%{transform: translateX(20px) scale(1.1);}
+}
+#lefttbox nav ul li i{
+    font-size:24px;
+}
+#lefttbox nav ul li a{
+    position:absolute;
+    font-size:20px;
+    font-weight:500;
+    left:80px;
+}
+#lefttbox nav ul label span{
+    position:absolute;
+    color:#2B4C8C;
+    border:2px solid #2B4C8C;
+    width:40px;
+    height:40px;
+    top:20px;
+    bottom:20px;
+    border-radius:50%;
+    padding:9px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.4s;
+}
+#lefttbox nav ul label span:hover{
+    color:#fff;
+    background:#2B4C8C;
+}
+#lefttbox input{
+    display:none;
+}
+  nav{
+            display:flex;
+            background:#3ac9f5;
+            height:60px;
+            line-height:65px;
+            border-radius:15px;
+            overflow:hidden;
+            box-shadow: 0 0 40px rgba(0,0,0,.2);
+        }
+        nav ul{
+            display:flex;
+            text-align:center;
+        }
+        nav ul li{
+            cursor:pointer;
+            height:100%;
+            padding: 0 10px;
+            transition:.4s;
+        }
+        nav ul li:hover{
+            background:#2eacd3;
+        }
+        nav ul li a{
+            color:#f2f2f2;
+        }
+        nav ul li a span{
+            position:absolute;
+            letter-spacing:.5px;
+            transform:translateX(-70px);
+            opacity:0;
+            pointer-events:none;
+            transition: .4s all;
+        }
+        nav ul li a i{
+            font-size:22px;
+            margin: 0 38px;
+            transition: .4s all;
+        }
+        nav ul li:hover a span{
+            transform:translateX(-55px);
+            opacity:0;
+            pointer-events:visible;
+        }
+        nav ul li:hover a i{
+            transform: translateX(-25px);
+        }
+        
+    </style>
+    <title>menu hover</title>
+    </head>
+<body>
+    <div id="header">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#"><i class="fas fa-home"></i><span>home</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-bell"></i><span>alerts</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-hourglass-end"></i><span>time</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-paper-plane"></i><span>chat</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="lefttbox">
+        <input type="checkbox" id="close" />
+        <label for="close">
+            <span class="fas fa-bars"></span>
+        </label>
+        <nav>
+            <<a class="brand">brand</a>
+            <label class="fas fa-times" for="close"></label>
+            <ul>
+                <li><i class="fas fa-home"></i><a>home</a></li>
+                <li><i class="fas fa-google"></i><a>account</a></li>
+                <li><i class="fas fa-bell"></i><a>messages</a></li>
+                <li><i class="fas fa-laptop"></i><a>coding</a></li>
+                <li><i class="fas fa-pen"></i><a>editors</a></li>
+                <li><i class="fas fa-bug"></i><a>bugs</a></li>
+                <li><i class="fas fa-user"></i><a>about</a></li>
+            </ul>
+         </nav>
+    </div>
+</body>
